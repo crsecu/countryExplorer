@@ -12,9 +12,16 @@ export interface Flags {
 
 export interface Country {
   name: Name;
+  flags: Flags;
   capital: string[];
   population: number;
-  flags: Flags;
+  region: string;
+  cca3: string;
 }
 
 /* Interfaces for Country Detail-related data*/
+
+/* PROPS Interfaces */
+export interface CountryCardProps {
+  country: Country;
+}

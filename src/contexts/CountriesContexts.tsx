@@ -25,9 +25,10 @@ function CountriesProvider({ children }: CountriesProviderProps) {
     async function getCountries() {
       try {
         const res = await fetch(
-          `${BASE_URL}?fields=name,capital,population,flags`
+          `${BASE_URL}?fields=name,capital,population,flags,region,cca3`
         );
         const data: Country[] = await res.json();
+        console.log("data", data);
 
         //Manually validate data to ensure it matches expected format
         const validatedData: Country[] = data.map(
@@ -37,6 +38,8 @@ function CountriesProvider({ children }: CountriesProviderProps) {
             },
             capital: item.capital,
             population: item.population,
+            region: item.region,
+            cca3: item.cca3,
             flags: {
               svg: item.flags.svg,
               alt: item.flags.alt,
@@ -52,8 +55,6 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
     getCountries();
   }, []);
-
-  console.log("checked ", countries);
 
   return (
     <CountriesContext.Provider value={{ countries }}>

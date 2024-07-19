@@ -42,10 +42,24 @@ h6 {
   isolation: isolate;
 }
 
-/* Other styles go here */
+/* ----- OTHER STYLES GO HERE ----- */
 
-/* temporarily setting background color to darkgray to alleviate eye strain */
+/* Temporarily styles - migrate to CSS modules later */
+/* setting background color to darkgray to alleviate eye strain */
 body {
   background-color: darkgray;
   color: white;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.countriesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 16px;
+  margin: 60px;
 }

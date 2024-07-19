@@ -1,12 +1,31 @@
 import { Link } from "react-router-dom";
+import { CountryCardProps } from "../types";
 
-function CountryCard(): React.JSX.Element {
-  const name = "United States";
+function CountryCard({ country }: CountryCardProps): React.JSX.Element {
+  const {
+    capital,
+    flags: { svg, alt },
+    name: { common: name }, // Destructure nested 'common' property and rename to 'name'
+    population,
+    region,
+    cca3,
+  } = country;
+
+  console.log("country", capital, svg, alt, name, population, region, cca3);
 
   return (
     <li>
-      <Link to={`/country/${name}`}>
-        <h2>Country Card</h2>
+      <Link to={`/country/${name}`} aria-label={`View details about ${name}`}>
+        <img
+          src={svg}
+          alt={alt ? alt : `The flag of ${name}.`}
+          width="300px"
+          height="200px"
+        />
+        <h2>{name}</h2>
+        <p>Population: {population}</p>
+        <p>Region: {region}</p>
+        <p>Capital: {capital[0]}</p>
       </Link>
     </li>
   );
