@@ -1,11 +1,14 @@
-interface CountryCardProps {}
+import { Link } from "react-router-dom";
 
-function CountryCard(props: CountryCardProps): React.JSX.Element {
+function CountryCard(): React.JSX.Element {
+  const name = "United States";
+
   return (
-    <>
-      <h3>Romania</h3>
-      <p>My home country</p>
-    </>
+    <li>
+      <Link to={`/country/${name}`}>
+        <h2>Country Card</h2>
+      </Link>
+    </li>
   );
 }
 
