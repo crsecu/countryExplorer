@@ -43,3 +43,9 @@ h6 {
 }
 
 /* Other styles go here */
+
+/* temporarily setting background color to darkgray to alleviate eye strain */
+body {
+  background-color: darkgray;
+  color: white;
+}
