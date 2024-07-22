@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
 import { Country, CountryDetails } from "../types";
+import { Dispatch, SetStateAction } from "react";
 
 const BASE_URL = "https://restcountries.com/v3.1";
 
@@ -11,6 +12,8 @@ interface CountriesContextType {
   countries: Country[];
   countryDetailsData: CountryDetails | null;
   getCountryDetails: (countryCode: string) => Promise<void>;
+  searchQuery: string;
+  setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
 const CountriesContext = createContext<CountriesContextType | undefined>(
@@ -22,7 +25,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
   const [countries, setCountries] = useState<Country[]>([]);
   const [countryDetailsData, setCountryDetailsData] =
     useState<CountryDetails | null>(null);
-
+  const [searchQuery, setSearchQuery] = useState<string>("");
   /* Functions that fetches data about every country in the world */
   useEffect(function () {
     async function getCountries() {
@@ -77,7 +80,13 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   return (
     <CountriesContext.Provider
-      value={{ countries, getCountryDetails, countryDetailsData }}
+      value={{
+        countries,
+        getCountryDetails,
+        countryDetailsData,
+        searchQuery,
+        setSearchQuery,
+      }}
     >
       {children}
     </CountriesContext.Provider>

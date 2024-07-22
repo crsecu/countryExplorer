@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useCountries } from "../hooks/useCountries";
 import { useParams } from "react-router-dom";
+import Button from "../components/Button";
 
 function DetailPage(): React.JSX.Element {
   // extract country code (cca3) from url params
@@ -38,6 +39,7 @@ function DetailPage(): React.JSX.Element {
 
   return (
     <>
+      <Button>Back</Button>
       <h1>{name.common}</h1>
       <p>
         <span>Native Name: {nativeName}</span>
