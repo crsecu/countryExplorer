@@ -11,11 +11,14 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
     cca3,
   } = country;
 
-  console.log("country", capital, svg, alt, name, population, region, cca3);
+  //console.log("country", capital, svg, alt, name, population, region, cca3);
 
   return (
     <li>
-      <Link to={`/country/${name}`} aria-label={`View details about ${name}`}>
+      <Link
+        to={`/country/${cca3}/${name}`}
+        aria-label={`View details about ${name}`}
+      >
         <img
           src={svg}
           alt={alt ? alt : `The flag of ${name}.`}

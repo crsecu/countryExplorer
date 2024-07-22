@@ -1,9 +1,7 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
-import { Country } from "../types";
+import { Country, CountryDetails } from "../types";
 
-/* https://restcountries.com/v3.1/{service}?fields={field},{field},{field}
-https://restcountries.com/v3.1/all?fields=name,capital,currencies */
-const BASE_URL = "https://restcountries.com/v3.1/all";
+const BASE_URL = "https://restcountries.com/v3.1";
 
 interface CountriesProviderProps {
   children: ReactNode;
@@ -11,6 +9,8 @@ interface CountriesProviderProps {
 
 interface CountriesContextType {
   countries: Country[];
+  countryDetailsData: CountryDetails | null;
+  getCountryDetails: (countryCode: string) => Promise<void>;
 }
 
 const CountriesContext = createContext<CountriesContextType | undefined>(
@@ -20,12 +20,15 @@ const CountriesContext = createContext<CountriesContextType | undefined>(
 //custom Provider component
 function CountriesProvider({ children }: CountriesProviderProps) {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [countryDetailsData, setCountryDetailsData] =
+    useState<CountryDetails | null>(null);
 
+  /* Functions that fetches data about every country in the world */
   useEffect(function () {
     async function getCountries() {
       try {
         const res = await fetch(
-          `${BASE_URL}?fields=name,capital,population,flags,region,cca3`
+          `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
         );
         const data: Country[] = await res.json();
         console.log("data", data);
@@ -40,6 +43,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
             population: item.population,
             region: item.region,
             cca3: item.cca3,
+            borders: item.borders,
             flags: {
               svg: item.flags.svg,
               alt: item.flags.alt,
@@ -56,8 +60,24 @@ function CountriesProvider({ children }: CountriesProviderProps) {
     getCountries();
   }, []);
 
+  /* Function that fetches Country Details Data */
+  async function getCountryDetails(countryCode: string) {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion`
+      );
+      const data = await res.json();
+      setCountryDetailsData(data);
+      console.log("DETAIL COUNTRY", data);
+    } catch (err) {
+      console.log("ERROR", err);
+    }
+  }
+
   return (
-    <CountriesContext.Provider value={{ countries }}>
+    <CountriesContext.Provider
+      value={{ countries, getCountryDetails, countryDetailsData }}
+    >
       {children}
     </CountriesContext.Provider>
   );

@@ -16,10 +16,34 @@ export interface Country {
   capital: string[];
   population: number;
   region: string;
+  borders: string[];
   cca3: string;
 }
 
 /* Interfaces for Country Detail-related data*/
+export interface CurrencyInfo {
+  name: string;
+  symbol: string;
+}
+
+export interface Languages {
+  [key: string]: string;
+}
+
+export interface CountryDetails {
+  name: Name;
+  flags: Flags;
+  languages: Languages;
+  currencies: {
+    [key: string]: CurrencyInfo;
+  };
+  capital: string[];
+  population: number;
+  region: string;
+  subregion: string;
+  borders: string[];
+  tld: string[];
+}
 
 /* PROPS Interfaces */
 export interface CountryCardProps {
