@@ -30,12 +30,13 @@ function DetailPage(): React.JSX.Element {
     region,
     subregion,
     tld,
+    latlng,
   } = countryDetailsData;
 
   const currency = Object.values(currencies)[0].name;
   const language = Object.values(languages)[0];
   const nativeName = Object.values(name.nativeName)[0].official;
-  console.log(nativeName);
+  console.log(latlng);
 
   return (
     <>
