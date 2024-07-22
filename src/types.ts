@@ -1,7 +1,11 @@
 // TO DO: Transfer all interfaces to this file
 
 /* Interfaces for Country Card data*/
+
 export interface Name {
+  nativeName: {
+    [key: string]: NativeName;
+  };
   common: string;
 }
 
@@ -21,6 +25,10 @@ export interface Country {
 }
 
 /* Interfaces for Country Detail-related data*/
+export interface NativeName {
+  official: string;
+  common: string;
+}
 export interface CurrencyInfo {
   name: string;
   symbol: string;

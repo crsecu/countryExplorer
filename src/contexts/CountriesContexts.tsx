@@ -38,6 +38,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
           (item: Country): Country => ({
             name: {
               common: item.name.common,
+              nativeName: {},
             },
             capital: item.capital,
             population: item.population,

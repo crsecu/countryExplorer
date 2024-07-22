@@ -13,7 +13,7 @@ function DetailPage(): React.JSX.Element {
 
       getCountryDetails(countryCode);
     },
-    [countryCode] //revisit this-might need useCallback to prevent infinit re-rendering when getCountryDetails is added to dependency array
+    [countryCode] //revisit this - might need useCallback to prevent infinit re-rendering when getCountryDetails is added to dependency array
   );
 
   if (!countryDetailsData) return <p>Loading...</p>;
@@ -31,11 +31,16 @@ function DetailPage(): React.JSX.Element {
     tld,
   } = countryDetailsData;
 
+  const currency = Object.values(currencies)[0].name;
+  const language = Object.values(languages)[0];
+  const nativeName = Object.values(name.nativeName)[0].official;
+  console.log(nativeName);
+
   return (
     <>
       <h1>{name.common}</h1>
       <p>
-        <span>Native Name:</span>
+        <span>Native Name: {nativeName}</span>
       </p>
       <p>
         <span>Population: {population}</span>
@@ -53,10 +58,10 @@ function DetailPage(): React.JSX.Element {
         <span>Top Level Domain: {tld[0]}</span>
       </p>
       <p>
-        <span>Currencies:</span>
+        <span>Currencies: {currency}</span>
       </p>
       <p>
-        <span>Languages:</span>
+        <span>Languages: {language}</span>
       </p>
     </>
   );
