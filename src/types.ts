@@ -38,22 +38,22 @@ export interface Languages {
   [key: string]: string;
 }
 
-export interface CountryDetails {
-  name: Name;
-  flags: Flags;
+export interface CountryDetails extends Country {
   languages: Languages;
   currencies: {
     [key: string]: CurrencyInfo;
   };
-  capital: string[];
-  population: number;
-  region: string;
   subregion: string;
   borders: string[];
   tld: string[];
+  latlng: [number, number];
 }
 
 /* PROPS Interfaces */
 export interface CountryCardProps {
   country: Country;
+}
+
+export interface ChangeCenterProps {
+  position: [number, number];
 }

@@ -1,3 +1,4 @@
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -62,4 +63,24 @@ ul {
   justify-content: space-around;
   gap: 16px;
   margin: 60px;
+}
+
+.detailPage {
+  display: flex;
+  height: 100vh;
+}
+
+.infoSection {
+  flex-basis: 50%;
+}
+
+.mapSection {
+  flex: 1;
+  background-color: grey;
+  height: 100%;
+  position: relative;
+}
+
+.map {
+  height: 100%;
 }
