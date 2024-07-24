@@ -15,8 +15,8 @@ function MapSection(): React.JSX.Element {
   );
 
   if (!countryDetailsData) return <p>Loading Map...</p>;
-  const { latlng } = countryDetailsData;
-  console.log("posiiton", latlng);
+
+  console.log("position");
 
   return (
     <div className="mapSection">
@@ -30,7 +30,7 @@ function MapSection(): React.JSX.Element {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[51.505, -0.09]}>
+        <Marker position={mapPosition}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>

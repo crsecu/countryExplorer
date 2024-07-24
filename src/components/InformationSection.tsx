@@ -36,7 +36,10 @@ function InformationSection(): React.JSX.Element {
   const currency = Object.values(currencies)[0].name;
   console.log("currency", currency);
   const language = Object.values(languages)[0];
-  const nativeName = Object.values(name.nativeName)[0].official;
+  const nativeName =
+    Object.keys(name.nativeName).length > 0
+      ? Object.values(name.nativeName)[0].official
+      : "Unknown";
   console.log(latlng);
 
   return (

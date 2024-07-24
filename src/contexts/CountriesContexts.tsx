@@ -66,13 +66,14 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   /* Function that fetches Country Details Data */
   async function getCountryDetails(countryCode: string) {
+    setCountryDetailsData(null);
     try {
       const res = await fetch(
         `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng`
       );
       const data = await res.json();
       setCountryDetailsData(data);
-      console.log("DETAIL COUNTRY", data);
+      console.log("DETAIL COUNTRY data", data);
     } catch (err) {
       console.log("ERROR", err);
     }
