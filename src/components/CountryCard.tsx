@@ -11,8 +11,6 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
     cca3,
   } = country;
 
-  //console.log("country", capital, svg, alt, name, population, region, cca3);
-
   return (
     <li>
       <Link

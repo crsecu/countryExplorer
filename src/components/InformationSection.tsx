@@ -17,7 +17,7 @@ function InformationSection(): React.JSX.Element {
     [countryCode] //revisit this - might need useCallback to prevent infinit re-rendering when getCountryDetails is added to dependency array
   );
 
-  if (!countryDetailsData) return <p>Loading...</p>;
+  if (!countryDetailsData) return <p>Loading Detail...</p>;
 
   const {
     name,

@@ -14,6 +14,8 @@ interface CountriesContextType {
   getCountryDetails: (countryCode: string) => Promise<void>;
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const CountriesContext = createContext<CountriesContextType | undefined>(
@@ -22,6 +24,7 @@ const CountriesContext = createContext<CountriesContextType | undefined>(
 
 //custom Provider component
 function CountriesProvider({ children }: CountriesProviderProps) {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [countries, setCountries] = useState<Country[]>([]);
   const [countryDetailsData, setCountryDetailsData] =
     useState<CountryDetails | null>(null);
@@ -66,7 +69,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   /* Function that fetches Country Details Data */
   async function getCountryDetails(countryCode: string) {
-    setCountryDetailsData(null);
+    setIsLoading(true);
     try {
       const res = await fetch(
         `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng`
@@ -76,6 +79,8 @@ function CountriesProvider({ children }: CountriesProviderProps) {
       console.log("DETAIL COUNTRY data", data);
     } catch (err) {
       console.log("ERROR", err);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -87,6 +92,8 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         countryDetailsData,
         searchQuery,
         setSearchQuery,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
