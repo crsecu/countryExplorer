@@ -13,6 +13,7 @@ function Neighbor({ neighbor }: NeighborProps): React.JSX.Element {
 
   async function handleNeighborClick() {
     try {
+      console.log("Neighbor button clicked");
       const neighborData = await getCountryDetails(neighbor);
       navigate(`/country/${neighbor}/${neighborData.name.common}`);
     } catch (err) {

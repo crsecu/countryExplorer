@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CountryCardProps } from "../types";
 
 function CountryCard({ country }: CountryCardProps): React.JSX.Element {
-  const navigate = useNavigate();
-
   const {
     capital,
     flags: { svg, alt },
@@ -13,17 +11,11 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
     cca3,
   } = country;
 
-  function handleClick(code: string, countryname: string) {
-    console.log("Card Clicked");
-    navigate(`/country/${code}/${countryname}`);
-  }
-
   return (
     <li>
-      <a
-        tabIndex={0}
+      <Link
+        to={`/country/${cca3}/${name}`}
         aria-label={`View details about ${name}`}
-        onClick={() => handleClick(cca3, name)}
       >
         <img
           src={svg}
@@ -35,7 +27,7 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
         <p>Population: {population}</p>
         <p>Region: {region}</p>
         <p>Capital: {capital[0]}</p>
-      </a>
+      </Link>
     </li>
   );
 }

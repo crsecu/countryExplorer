@@ -23,7 +23,7 @@ function MapSection(): React.JSX.Element {
       <MapContainer
         center={mapPosition}
         zoom={6}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         className="map"
       >
         <TileLayer
