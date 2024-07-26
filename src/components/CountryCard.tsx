@@ -1,9 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CountryCardProps } from "../types";
-import { useCountries } from "../hooks/useCountries";
 
 function CountryCard({ country }: CountryCardProps): React.JSX.Element {
-  const { getCountryDetails } = useCountries();
   const navigate = useNavigate();
 
   const {
@@ -15,14 +13,9 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
     cca3,
   } = country;
 
-  async function handleClick(code: string, countryname: string) {
-    console.log("click click");
-    try {
-      await getCountryDetails(code);
-      navigate(`/country/${cca3}/${countryname}`);
-    } catch (err) {
-      console.log("Something went wrong", err);
-    }
+  function handleClick(code: string, countryname: string) {
+    console.log("Card Clicked");
+    navigate(`/country/${code}/${countryname}`);
   }
 
   return (
@@ -30,7 +23,7 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
       <a
         tabIndex={0}
         aria-label={`View details about ${name}`}
-        onClick={(e) => handleClick(cca3, name)}
+        onClick={() => handleClick(cca3, name)}
       >
         <img
           src={svg}
