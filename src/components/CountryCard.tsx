@@ -14,7 +14,7 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
   return (
     <li>
       <Link
-        to={`/country/${cca3}/${name}`}
+        to={`/country/${name}/${cca3}`}
         aria-label={`View details about ${name}`}
       >
         <img

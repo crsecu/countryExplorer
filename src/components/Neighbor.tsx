@@ -1,29 +1,23 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCountries } from "../hooks/useCountries";
-
-// TO DO: Navigation to Neighbor Detail is not ideal - must be refactored
+import { Country } from "../types";
 
 interface NeighborProps {
   neighbor: string;
 }
 
 function Neighbor({ neighbor }: NeighborProps): React.JSX.Element {
-  const { getCountryDetails } = useCountries();
-  const navigate = useNavigate();
+  const { countries } = useCountries();
 
-  async function handleNeighborClick() {
-    try {
-      console.log("Neighbor button clicked");
-      const neighborData = await getCountryDetails(neighbor);
-      navigate(`/country/${neighbor}/${neighborData.name.common}`);
-    } catch (err) {
-      console.log("Failed to fetch neighbor details.", err);
-    }
-  }
+  // Find neighboring country name based on cca3 country code
+  const neighborData: Country[] = countries.filter((country) => {
+    return country.cca3 === neighbor;
+  });
+  const neighborName: string = neighborData[0].name.common;
 
   return (
     <li>
-      <button onClick={handleNeighborClick}>{neighbor}</button>
+      <Link to={`/country/${neighborName}/${neighbor}`}>{neighborName}</Link>
     </li>
   );
 }

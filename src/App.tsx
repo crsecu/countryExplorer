@@ -11,7 +11,8 @@ function App(): React.JSX.Element {
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
-          <Route path="country/:cca3/:countryName" element={<DetailPage />} />
+          {/* <Route path="country/:cca3/:countryName" element={<DetailPage />} /> */}
+          <Route path="country/:countryName/:cca3" element={<DetailPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
