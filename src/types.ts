@@ -6,6 +6,7 @@ export interface Name {
   nativeName: {
     [key: string]: NativeName;
   };
+  official: string;
   common: string;
 }
 

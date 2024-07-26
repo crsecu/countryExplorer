@@ -3,9 +3,7 @@ import CountryCard from "./CountryCard";
 
 /* TO DO: check if component is rendering twice */
 
-interface CountryCardListProps {}
-
-function CountryCardList(props: CountryCardListProps): React.JSX.Element {
+function CountryCardList(): React.JSX.Element {
   const { countries } = useCountries();
 
   return (

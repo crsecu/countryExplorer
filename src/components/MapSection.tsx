@@ -6,7 +6,6 @@ import { ChangeCenterProps } from "../types";
 function MapSection(): React.JSX.Element {
   const { countryDetailsData } = useCountries();
   const [mapPosition, setMapPosition] = useState<[number, number]>([40, 0]);
-  debugger;
 
   useEffect(
     function () {
@@ -14,7 +13,8 @@ function MapSection(): React.JSX.Element {
     },
     [countryDetailsData?.latlng]
   );
-  console.log("position");
+
+  console.log("position", mapPosition);
 
   if (!countryDetailsData) return <p>Loading Map 123...</p>;
 

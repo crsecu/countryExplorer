@@ -11,7 +11,7 @@ interface CountriesProviderProps {
 interface CountriesContextType {
   countries: Country[];
   countryDetailsData: CountryDetails | null;
-  getCountryDetails: (countryCode: string) => Promise<void>;
+  getCountryDetails: (countryCode: string) => Promise<CountryDetails>;
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
@@ -44,6 +44,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
           (item: Country): Country => ({
             name: {
               common: item.name.common,
+              official: item.name.official,
               nativeName: {},
             },
             capital: item.capital,
@@ -69,6 +70,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   /* Function that fetches Country Details Data */
   async function getCountryDetails(countryCode: string) {
+    setCountryDetailsData(null);
     setIsLoading(true);
     try {
       const res = await fetch(
@@ -77,6 +79,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
       const data = await res.json();
       setCountryDetailsData(data);
       console.log("DETAIL COUNTRY data", data);
+      return data;
     } catch (err) {
       console.log("ERROR", err);
     } finally {
