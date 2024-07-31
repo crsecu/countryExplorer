@@ -5,22 +5,21 @@ import Button from "./Button";
 import NeighboursList from "./NeighborsList";
 
 function InformationSection(): React.JSX.Element {
+  const { getCountryDetails, countryDetailsData, isLoading } = useCountries();
   // extract country code (cca3) from url params
-  const { getCountryDetails, countryDetailsData } = useCountries();
   const { cca3: countryCode } = useParams();
 
   // This effect is needed to ensure data fetch happens whenever the route changes
-  // I refactored data fetching to happen on click - think of ways to update routes and ui more effeciently
   useEffect(
     function () {
       if (!countryCode) return;
-
       getCountryDetails(countryCode);
     },
     [countryCode] //revisit this - might need useCallback to prevent infinit re-rendering when getCountryDetails is added to dependency array
   );
 
-  if (!countryDetailsData) return <p>Loading Detail...</p>;
+  if (isLoading || !countryDetailsData)
+    return <p>Loading Details about selected country...</p>;
 
   const {
     name,

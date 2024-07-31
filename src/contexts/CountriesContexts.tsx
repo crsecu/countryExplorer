@@ -10,6 +10,7 @@ interface CountriesProviderProps {
 
 interface CountriesContextType {
   countries: Country[];
+  searchedCountries: Country[];
   countryDetailsData: CountryDetails | null;
   getCountryDetails: (countryCode: string) => Promise<CountryDetails>;
   searchQuery: string;
@@ -28,7 +29,19 @@ function CountriesProvider({ children }: CountriesProviderProps) {
   const [countries, setCountries] = useState<Country[]>([]);
   const [countryDetailsData, setCountryDetailsData] =
     useState<CountryDetails | null>(null);
+
   const [searchQuery, setSearchQuery] = useState<string>("");
+
+  /* Derived state */
+  const searchedCountries =
+    searchQuery.length > 2
+      ? countries.filter((searchedCountry) =>
+          searchedCountry.name.common
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        )
+      : countries;
+
   /* Functions that fetches data about every country in the world */
   useEffect(function () {
     async function getCountries() {
@@ -70,11 +83,14 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   /* Function that fetches Country Details Data */
   async function getCountryDetails(countryCode: string) {
+    /* Prevent API calls when currently selected country === previously selected country */
+    if (countryDetailsData?.cca3 === countryCode) return;
+
     setCountryDetailsData(null);
     setIsLoading(true);
     try {
       const res = await fetch(
-        `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng`
+        `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
       );
       const data = await res.json();
       setCountryDetailsData(data);
@@ -91,6 +107,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
     <CountriesContext.Provider
       value={{
         countries,
+        searchedCountries,
         getCountryDetails,
         countryDetailsData,
         searchQuery,
