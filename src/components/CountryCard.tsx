@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { CountryCardProps } from "../types";
+import { useCountries } from "../hooks/useCountries";
 
 function CountryCard({ country }: CountryCardProps): React.JSX.Element {
+  const { setSearchQuery } = useCountries();
+
   const {
     capital,
     flags: { svg, alt },
@@ -12,7 +15,8 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
   } = country;
 
   return (
-    <li>
+    /* Clear the search field in the search bar when a country card is clicked */
+    <li onClick={() => setSearchQuery("")}>
       <Link
         to={`/country/${name}/${cca3}`}
         aria-label={`View details about ${name}`}

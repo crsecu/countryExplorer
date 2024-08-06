@@ -15,6 +15,8 @@ interface CountriesContextType {
   getCountryDetails: (countryCode: string) => Promise<CountryDetails>;
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
+  filteredCountries: Country[];
+  setFilterByRegion: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
@@ -31,8 +33,9 @@ function CountriesProvider({ children }: CountriesProviderProps) {
     useState<CountryDetails | null>(null);
 
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [filterByRegion, setFilterByRegion] = useState<string>("");
 
-  /* Derived state */
+  /* Filter countries based on search query */
   const searchedCountries =
     searchQuery.length > 2
       ? countries.filter((searchedCountry) =>
@@ -41,6 +44,13 @@ function CountriesProvider({ children }: CountriesProviderProps) {
             .includes(searchQuery.toLowerCase())
         )
       : countries;
+
+  /* Filter countries by region */
+  const filteredCountries = filterByRegion
+    ? searchedCountries.filter((country) => {
+        return country.region === filterByRegion;
+      })
+    : searchedCountries;
 
   /* Functions that fetches data about every country in the world */
   useEffect(function () {
@@ -112,6 +122,8 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         countryDetailsData,
         searchQuery,
         setSearchQuery,
+        filteredCountries,
+        setFilterByRegion,
         isLoading,
         setIsLoading,
       }}
