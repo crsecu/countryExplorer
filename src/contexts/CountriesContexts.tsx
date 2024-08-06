@@ -60,7 +60,6 @@ function CountriesProvider({ children }: CountriesProviderProps) {
           `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
         );
         const data: Country[] = await res.json();
-        console.log("data", data);
 
         //Manually validate data to ensure it matches expected format
         const validatedData: Country[] = data.map(
@@ -104,7 +103,6 @@ function CountriesProvider({ children }: CountriesProviderProps) {
       );
       const data = await res.json();
       setCountryDetailsData(data);
-      console.log("DETAIL COUNTRY data", data);
       return data;
     } catch (err) {
       console.log("ERROR", err);

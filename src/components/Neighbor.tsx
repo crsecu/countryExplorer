@@ -13,7 +13,7 @@ function Neighbor({ neighbor }: NeighborProps): React.JSX.Element {
   const neighborData: Country[] = countries.filter((country) => {
     return country.cca3 === neighbor;
   });
-  console.log("neighbour", neighborData);
+
   const neighborName: string = neighborData[0].name.common;
 
   return (

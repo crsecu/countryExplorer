@@ -3,7 +3,7 @@ import { CountryCardProps } from "../types";
 import { useCountries } from "../hooks/useCountries";
 
 function CountryCard({ country }: CountryCardProps): React.JSX.Element {
-  const { setSearchQuery } = useCountries();
+  const { setSearchQuery, setFilterByRegion } = useCountries();
 
   const {
     capital,
@@ -14,9 +14,14 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
     cca3,
   } = country;
 
+  /* Reset search query and filter to default values when a country card is clicked */
+  function clearSearchAndFilter() {
+    setSearchQuery("");
+    setFilterByRegion("");
+  }
+
   return (
-    /* Clear the search field in the search bar when a country card is clicked */
-    <li onClick={() => setSearchQuery("")}>
+    <li onClick={clearSearchAndFilter}>
       <Link
         to={`/country/${name}/${cca3}`}
         aria-label={`View details about ${name}`}

@@ -14,8 +14,6 @@ function MapSection(): React.JSX.Element {
     [countryDetailsData?.latlng]
   );
 
-  console.log("position", mapPosition);
-
   if (!countryDetailsData) return <p>Loading Map 123...</p>;
 
   return (
