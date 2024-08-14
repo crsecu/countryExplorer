@@ -4,7 +4,9 @@ import CountryCard from "./CountryCard";
 /* TO DO: check if component is rendering twice */
 
 function CountryCardList(): React.JSX.Element {
-  const { filteredCountries } = useCountries();
+  const { filteredCountries, isLoading } = useCountries();
+
+  if (isLoading) return <h1>Fetching Countries from API</h1>;
 
   return (
     <ul className="countriesList">

@@ -55,6 +55,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
   /* Functions that fetches data about every country in the world */
   useEffect(function () {
     async function getCountries() {
+      setIsLoading(true);
       try {
         const res = await fetch(
           `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
@@ -84,6 +85,8 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         setCountries(validatedData);
       } catch (err) {
         console.log("ERROR", err);
+      } finally {
+        setIsLoading(false);
       }
     }
 
