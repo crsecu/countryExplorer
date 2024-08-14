@@ -1,5 +1,5 @@
-import { useCountries } from "../hooks/useCountries";
-import CountryCard from "./CountryCard";
+import { useCountries } from "../../hooks/useCountries";
+import CountryCard from "../CountryCard/CountryCard";
 
 /* TO DO: check if component is rendering twice */
 

@@ -1,5 +1,5 @@
-import InformationSection from "../components/InformationSection";
-import MapSection from "../components/MapSection";
+import InformationSection from "../components/InformationSection/InformationSection";
+import MapSection from "../components/MapSection/MapSection";
 
 function DetailPage(): React.JSX.Element {
   return (

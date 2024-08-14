@@ -1,6 +1,6 @@
-import CountryCardList from "../components/CountryCardList";
-import FilterDropDown from "../components/FilterDropDown";
-import SearchBar from "../components/SearchBar";
+import CountryCardList from "../components/CountryCardList/CountryCardList";
+import FilterDropDown from "../components/FilterDropDown/FilterDropDown";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 interface HomePageProps {}
 

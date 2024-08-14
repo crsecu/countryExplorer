@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useCountries } from "../hooks/useCountries";
-import { Country } from "../types";
+import { useCountries } from "../../hooks/useCountries";
+import { Country } from "../../types";
 
 interface NeighborProps {
   neighbor: string;

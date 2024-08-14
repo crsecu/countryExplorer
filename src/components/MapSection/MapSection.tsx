@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import { useCountries } from "../hooks/useCountries";
-import { ChangeCenterProps } from "../types";
+import { useCountries } from "../../hooks/useCountries";
+import { ChangeCenterProps } from "../../types";
 
 function MapSection(): React.JSX.Element {
   const { countryDetailsData } = useCountries();

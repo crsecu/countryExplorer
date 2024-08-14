@@ -1,4 +1,4 @@
-import Neighbor from "./Neighbor";
+import Neighbor from "../Neighbor/Neighbor";
 
 interface NeighborsListProps {
   borders: string[];

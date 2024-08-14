@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { CountryCardProps } from "../types";
-import { useCountries } from "../hooks/useCountries";
+import { CountryCardProps } from "../../types";
+import { useCountries } from "../../hooks/useCountries";
 
 function CountryCard({ country }: CountryCardProps): React.JSX.Element {
   const { setSearchQuery, setFilterByRegion } = useCountries();

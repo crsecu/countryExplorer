@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useCountries } from "../hooks/useCountries";
+import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
-import Button from "./Button";
-import NeighboursList from "./NeighborsList";
+import Button from "../Button/Button";
+import NeighboursList from "../NeighborsList/NeighborsList";
 
 function InformationSection(): React.JSX.Element {
   const { getCountryDetails, countryDetailsData, isLoading } = useCountries();

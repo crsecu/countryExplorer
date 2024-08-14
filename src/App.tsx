@@ -4,7 +4,7 @@ import { CountriesProvider } from "./contexts/CountriesContexts";
 import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import PageNotFound from "./pages/PageNotFound";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 
 function App(): React.JSX.Element {
   return (
