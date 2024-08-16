@@ -4,13 +4,18 @@ import { CountriesProvider } from "./contexts/CountriesContexts";
 import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import PageNotFound from "./pages/PageNotFound";
+import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 
 function App(): React.JSX.Element {
   return (
     <CountriesProvider>
       <BrowserRouter>
-        <NavBar />
+        <Header>
+          <NavBar />
+          <ThemeSwitcher />
+        </Header>
         <Routes>
           <Route index element={<HomePage />} />
           {/* <Route path="country/:cca3/:countryName" element={<DetailPage />} /> */}
