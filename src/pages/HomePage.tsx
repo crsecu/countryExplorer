@@ -1,10 +1,11 @@
 import CountryCardList from "../components/CountryCardList/CountryCardList";
 import FilterDropDown from "../components/FilterDropDown/FilterDropDown";
 import SearchBar from "../components/SearchBar/SearchBar";
+import styles from "./HomePage.module.css";
 
 function HomePage(): React.JSX.Element {
   return (
-    <main>
+    <main className={styles.main}>
       <form className="filter">
         <SearchBar />
         <FilterDropDown />

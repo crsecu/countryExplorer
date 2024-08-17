@@ -53,6 +53,15 @@ body {
   font-size: 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+a,
+a:visited {
+  color: var(--black);
+}
+
 ul {
   padding: 0;
   list-style-type: none;
@@ -61,9 +70,6 @@ ul {
 
 /* Temporarily styles - migrate to CSS modules later */
 /* setting background color to darkgray to alleviate eye strain */
-body {
-  background-color: darkgray;
-}
 
 .countriesList {
   display: flex;
@@ -93,7 +99,6 @@ body {
   height: 100%;
 }
 
-.header,
 .filter {
   display: flex;
   justify-content: space-between;
