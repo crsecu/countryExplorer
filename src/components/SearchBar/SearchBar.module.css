@@ -1,0 +1,14 @@
+.searchContainer {
+}
+
+.searchBar {
+  border: none;
+  box-shadow: var(--box-shadow);
+  border-radius: 6px;
+  padding: 0.875rem 2rem;
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+}

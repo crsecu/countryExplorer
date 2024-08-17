@@ -1,0 +1,7 @@
+.countryCardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px; /* adjust later */
+  padding: var(--spacing-xl) 0;
+}

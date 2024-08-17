@@ -1,0 +1,18 @@
+.countryCard {
+  box-shadow: var(--box-shadow);
+}
+.countryCardContent {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  padding-bottom: var(--spacing-xl);
+  border-radius: 0 0 6px 6px;
+}
+
+.countryCardInfo {
+  padding-top: 0.5rem;
+}
+
+.flag {
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}

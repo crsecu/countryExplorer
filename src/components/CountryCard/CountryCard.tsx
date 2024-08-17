@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CountryCardProps } from "../../types";
 import { useCountries } from "../../hooks/useCountries";
+import styles from "./CountryCard.module.css";
 
 function CountryCard({ country }: CountryCardProps): React.JSX.Element {
   const { setSearchQuery, setFilterByRegion } = useCountries();
@@ -22,21 +23,38 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
 
   return (
     <li onClick={clearSearchAndFilter}>
-      <Link
-        to={`/country/${name}/${cca3}`}
-        aria-label={`View details about ${name}`}
-      >
-        <img
-          src={svg}
-          alt={alt ? alt : `The flag of ${name}.`}
-          width="300px"
-          height="200px"
-        />
-        <h2>{name}</h2>
-        <p>Population: {population}</p>
-        <p>Region: {region}</p>
-        <p>Capital: {capital[0]}</p>
-      </Link>
+      <article className={styles.countryCard}>
+        <Link
+          to={`/country/${name}/${cca3}`}
+          aria-label={`View details about ${name}`}
+        >
+          <img
+            src={svg}
+            alt={alt ? alt : `The flag of ${name}.`}
+            width="300px"
+            height="180px"
+            className={styles.flag}
+          />
+
+          <div className={styles.countryCardContent}>
+            <h2>{name}</h2>
+            <dl className={styles.countryCardInfo}>
+              <div>
+                <dt>Population</dt>
+                <dd>{population}</dd>
+              </div>
+              <div>
+                <dt>Region</dt>
+                <dd>{region}</dd>
+              </div>
+              <div>
+                <dt>Capital</dt>
+                <dd>{capital[0]}</dd>
+              </div>
+            </dl>
+          </div>
+        </Link>
+      </article>
     </li>
   );
 }
