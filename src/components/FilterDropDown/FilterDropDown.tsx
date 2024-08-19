@@ -18,7 +18,10 @@ function FilterDropDown(): React.JSX.Element {
   const { setFilterByRegion, setSearchQuery } = useCountries();
 
   function handleChange(selectedOption: SingleValue<SelectedOptions>) {
-    if (!selectedOption) return;
+    if (!selectedOption) {
+      setFilterByRegion(""); //Handle the case when the selection is cleared
+      return;
+    }
     setFilterByRegion(selectedOption.label);
     setSearchQuery("");
   }
@@ -27,7 +30,52 @@ function FilterDropDown(): React.JSX.Element {
     <Select
       options={options}
       onChange={handleChange}
-      placeholder={"Filter by region"}
+      placeholder={"Filter by Region"}
+      isClearable //This prop enables the selected option to be cleared. TO DO: Verify that the entire country list is displayed again after the option is cleared
+      styles={{
+        control: (baseStyles, state) => ({
+          ...baseStyles,
+          padding: "6px 16px",
+          border: state.isFocused ? "1px solid black " : "none",
+          boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
+        }),
+        option: (baseStyle) => ({
+          ...baseStyle,
+          fontSize: "16px",
+          color: "black",
+          paddingLeft: "16px",
+          fontWeight: 600,
+        }),
+        placeholder: (baseStyles) => ({
+          ...baseStyles,
+          color: "black",
+          fontWeight: 600,
+          fontSize: "16px",
+        }),
+        indicatorSeparator: () => ({
+          display: "none",
+        }),
+        dropdownIndicator: (baseStyles, state) => ({
+          ...baseStyles,
+          display: state.selectProps.value ? "none" : "block",
+          color: "black",
+          marginLeft: "16px",
+        }),
+        menuList: (baseStyles) => ({
+          ...baseStyles,
+        }),
+        menu: (baseStyles) => ({
+          ...baseStyles,
+          marginTop: "4px",
+          boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
+        }),
+        singleValue: (baseStyles) => ({
+          ...baseStyles,
+          fontSize: "16px",
+          fontWeight: 600,
+          color: "black",
+        }),
+      }}
     />
   );
 }
