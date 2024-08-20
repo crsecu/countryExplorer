@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useCountries } from "../../hooks/useCountries";
 import { ChangeCenterProps } from "../../types";
+import styles from "./MapSection.module.css";
 
 function MapSection(): React.JSX.Element {
   const { countryDetailsData } = useCountries();
@@ -17,12 +18,12 @@ function MapSection(): React.JSX.Element {
   if (!countryDetailsData) return <p>Loading Map 123...</p>;
 
   return (
-    <div className="mapSection">
+    <div className={styles.mapSection}>
       <MapContainer
         center={mapPosition}
         zoom={6}
         scrollWheelZoom={true}
-        className="map"
+        className={styles.map}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

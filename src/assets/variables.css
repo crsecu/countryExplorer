@@ -13,6 +13,7 @@
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
 
   /* Spacing units*/
+  --spacing-xxs: 0.5rem;
   --spacing-sm: 1.25rem;
   --spacing-md: 1.375rem;
   --spacing-lg: 1.75rem;

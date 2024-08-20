@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCountries } from "../../hooks/useCountries";
 import { Country } from "../../types";
+import styles from "./Neighbor.module.css";
 
 interface NeighborProps {
   neighbor: string;
@@ -17,7 +18,7 @@ function Neighbor({ neighbor }: NeighborProps): React.JSX.Element {
   const neighborName: string = neighborData[0].name.common;
 
   return (
-    <li>
+    <li className={styles.neighbor}>
       <Link to={`/country/${neighborName}/${neighbor}`}>{neighborName}</Link>
     </li>
   );

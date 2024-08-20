@@ -3,6 +3,7 @@ import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
 import Button from "../Button/Button";
 import NeighboursList from "../NeighborsList/NeighborsList";
+import styles from "./InformationSection.module.css";
 
 function InformationSection(): React.JSX.Element {
   const { getCountryDetails, countryDetailsData, isLoading } = useCountries();
@@ -44,37 +45,59 @@ function InformationSection(): React.JSX.Element {
 
   return (
     <>
-      <div className="infoSection">
+      <div className={styles.infoSection}>
         <Button>Back</Button>
-        <h1>{name.common}</h1>
-        <p>
-          <span>Native Name: {nativeName}</span>
-        </p>
-        <p>
-          <span>Population: {population}</span>
-        </p>
-        <p>
-          <span>Region: {region}</span>
-        </p>
-        <p>
-          <span>Sub Region: {subregion}</span>
-        </p>
-        <p>
-          <span>Capital: {capital[0]}</span>
-        </p>
-        <p>
-          <span>Top Level Domain: {tld[0]}</span>
-        </p>
-        <p>
-          <span>Currencies: {currency}</span>
-        </p>
-        <p>
-          <span>Languages: {language}</span>
-        </p>
-      </div>
-      <div>
-        <h2>Neighbors</h2>
-        <NeighboursList borders={borders} />
+        <div className={styles.detailContainer}>
+          {/* temporary class name */}
+          <h2 className={styles.countryName}>{name.common}</h2>
+          <img
+            src={flags.svg}
+            alt={flags.alt ? flags.alt : `The flag of ${name}.`}
+            className={styles.flagThumbnail}
+          />
+        </div>
+        <dl>
+          <dt>Native Name</dt>
+          <dd>{nativeName}</dd>
+        </dl>
+        <dl>
+          <dt>Population</dt>
+          <dd>{population}</dd>
+        </dl>
+        <dl>
+          <dt>Region</dt>
+          <dd>{region}</dd>
+        </dl>
+        <dl>
+          <dt>Sub Region</dt>
+          <dd>{subregion}</dd>
+        </dl>
+        <dl>
+          <dt>Capital</dt>
+          <dd>{capital[0]}</dd>
+        </dl>
+        <br></br>
+        <dl>
+          <dt>Top Level Domain</dt>
+          <dd>{tld[0]}</dd>
+        </dl>
+        <dl>
+          <dt>Currencies</dt>
+          <dd> {currency}</dd>
+        </dl>
+        <dl>
+          <dt>Languages</dt>
+          <dd> {language}</dd>
+        </dl>
+
+        <div className={styles.neighborsList}>
+          {borders.length > 0 && (
+            <>
+              <h3>Border Countries:</h3>
+              <NeighboursList borders={borders} />{" "}
+            </>
+          )}
+        </div>
       </div>
     </>
   );

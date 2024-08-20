@@ -1,4 +1,5 @@
 import Neighbor from "../Neighbor/Neighbor";
+import styles from "./NeighborsList.module.css";
 
 interface NeighborsListProps {
   borders: string[];
@@ -6,7 +7,7 @@ interface NeighborsListProps {
 
 function NeighborsList({ borders }: NeighborsListProps): React.JSX.Element {
   return (
-    <ul>
+    <ul className={styles.neighborsList}>
       {borders.map((border) => (
         <Neighbor neighbor={border} key={border} />
       ))}

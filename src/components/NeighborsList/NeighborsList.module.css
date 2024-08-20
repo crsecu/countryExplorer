@@ -1,0 +1,6 @@
+.neighborsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: var(--very-light-gray-bg);
+}

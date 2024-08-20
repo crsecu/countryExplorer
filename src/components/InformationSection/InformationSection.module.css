@@ -1,0 +1,20 @@
+.infoSection {
+  padding: var(--spacing-sm);
+  background-color: var(--very-light-gray-bg);
+}
+
+.neighborsList {
+  padding: var(--spacing-lg) 0;
+}
+
+.flagThumbnail {
+  width: 60px;
+}
+
+/* this class name is temporary */
+.detailContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}

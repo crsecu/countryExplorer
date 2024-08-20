@@ -1,0 +1,7 @@
+.neighbor {
+  padding: 8px;
+  box-shadow: var(--box-shadow);
+  border-radius: 6px;
+  flex-grow: 1;
+  background-color: var(--white);
+}

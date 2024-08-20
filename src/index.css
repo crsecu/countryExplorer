@@ -73,7 +73,7 @@ dd {
 }
 
 dt {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 dt::after {
@@ -94,26 +94,3 @@ main {
 }
 
 /* ------- END OF GLOBAL STYLES ------- */
-
-/* Temporarily styles - migrate to CSS modules later */
-/* setting background color to darkgray to alleviate eye strain */
-
-.detailPage {
-  display: flex;
-  height: 100vh;
-}
-
-.infoSection {
-  flex-basis: 50%;
-}
-
-.mapSection {
-  flex: 1;
-  background-color: grey;
-  height: 100%;
-  position: relative;
-}
-
-.map {
-  height: 100%;
-}

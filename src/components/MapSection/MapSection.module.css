@@ -1,0 +1,10 @@
+.mapSection {
+  flex: 1;
+  background-color: grey;
+  height: 100%;
+  position: relative;
+}
+
+.map {
+  height: 350px;
+}
