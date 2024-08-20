@@ -36,14 +36,16 @@ function FilterDropDown(): React.JSX.Element {
         control: (baseStyles, state) => ({
           ...baseStyles,
           padding: "6px 16px",
+          borderRadius: "6px",
           border: state.isFocused ? "1px solid black " : "none",
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
+          width: "230px",
         }),
         option: (baseStyle) => ({
           ...baseStyle,
           fontSize: "16px",
           color: "black",
-          paddingLeft: "16px",
+          paddingLeft: "30px",
           fontWeight: 600,
         }),
         placeholder: (baseStyles) => ({
@@ -68,6 +70,8 @@ function FilterDropDown(): React.JSX.Element {
           ...baseStyles,
           marginTop: "4px",
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
+          width: "230px",
+          borderRadius: "6px",
         }),
         singleValue: (baseStyles) => ({
           ...baseStyles,

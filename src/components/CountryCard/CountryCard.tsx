@@ -22,19 +22,19 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
   }
 
   return (
-    <li onClick={clearSearchAndFilter}>
+    <li className={styles.countryCardItem} onClick={clearSearchAndFilter}>
       <article className={styles.countryCard}>
         <Link
           to={`/country/${name}/${cca3}`}
           aria-label={`View details about ${name}`}
         >
-          <img
-            src={svg}
-            alt={alt ? alt : `The flag of ${name}.`}
-            width="300px"
-            height="180px"
-            className={styles.flag}
-          />
+          <div className={styles.flagWrapper}>
+            <img
+              src={svg}
+              alt={alt ? alt : `The flag of ${name}.`}
+              className={styles.flag}
+            />
+          </div>
 
           <div className={styles.countryCardContent}>
             <h2>{name}</h2>

@@ -80,7 +80,20 @@ dt::after {
   content: ": ";
 }
 
-/* ----- OTHER STYLES GO HERE ----- */
+/* ----- GLOBAL LAYOUT STYLES GO HERE ----- */
+main {
+  background-color: var(--very-light-gray-bg);
+  padding: 1.75rem var(--spacing-sm);
+}
+
+/* MEDIA QUERIES*/
+@media screen and (min-width: 600px) {
+  main {
+    padding: var(--spacing-xl) var(--spacing-xxl);
+  }
+}
+
+/* ------- END OF GLOBAL STYLES ------- */
 
 /* Temporarily styles - migrate to CSS modules later */
 /* setting background color to darkgray to alleviate eye strain */
@@ -103,10 +116,4 @@ dt::after {
 
 .map {
   height: 100%;
-}
-
-.filter {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.5rem;
 }

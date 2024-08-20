@@ -1,4 +1,12 @@
-main {
-  background-color: var(--very-light-gray-bg);
-  padding: var(--spacing-xl) var(--spacing-xxl);
+.filter {
+  font-size: 1.5rem;
+}
+
+/* MEDIA QUERIES*/
+@media screen and (min-width: 600px) {
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
 }
