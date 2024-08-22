@@ -4,8 +4,8 @@ import styles from "./NavBar.module.css";
 function NavBar(): React.JSX.Element {
   return (
     <nav>
-      <NavLink to="/">
-        <h1 className={styles.logoTitle}>Where in the world?</h1>
+      <NavLink to="/" aria-label="Go to homepage">
+        <span className={styles.logoTitle}>Where in the world?</span>
       </NavLink>
     </nav>
   );
