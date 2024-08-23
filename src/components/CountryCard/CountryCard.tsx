@@ -37,7 +37,7 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
           </div>
 
           <div className={styles.countryCardContent}>
-            <h2>{name}</h2>
+            <h2 className={styles.countryName}>{name}</h2>
             <dl className={styles.countryCardInfo}>
               <div>
                 <dt>Population</dt>
