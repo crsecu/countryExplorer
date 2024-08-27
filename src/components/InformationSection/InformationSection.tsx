@@ -90,7 +90,7 @@ function InformationSection(): React.JSX.Element {
           <dd> {language}</dd>
         </dl>
 
-        <div className={styles.neighborsList}>
+        <div className={styles.neighborsListSection}>
           {borders.length > 0 && (
             <>
               <h3>Border Countries:</h3>

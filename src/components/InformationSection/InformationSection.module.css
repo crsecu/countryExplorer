@@ -3,7 +3,7 @@
   background-color: var(--very-light-gray-bg);
 }
 
-.neighborsList {
+.neighborsListSection {
   padding: var(--spacing-lg) 0;
 }
 
@@ -16,5 +16,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-sm) 0 var(--spacing-lg) 0;
+}
+
+.countryName {
+  font-size: 2rem;
 }
