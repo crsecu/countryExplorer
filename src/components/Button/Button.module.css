@@ -1,3 +1,16 @@
 .backButton {
-  display: block;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 8px;
+  margin: var(--spacing-lg) var(--spacing-sm) 52px var(--spacing-sm); /* TO DO: Change px to rem */
+  padding: 4px 18px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--white);
+  box-shadow: var(--box-shadowBtn);
+}
+
+.backArrowIcon {
+  min-width: 16px;
 }

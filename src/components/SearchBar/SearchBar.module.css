@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-xl);
 }
 
 .searchBar {
@@ -21,4 +20,11 @@
   position: absolute;
   margin-left: 1.75rem;
   color: var(--dark-gray);
+}
+
+/* MEDIA QUERIES*/
+@media screen and (max-width: 575px) {
+  .searchContainer {
+    margin-bottom: var(--spacing-xl);
+  }
 }

@@ -67,6 +67,10 @@ ul {
   list-style-type: none;
 }
 
+dl {
+  line-height: 1.875;
+}
+
 dt,
 dd {
   display: inline;
@@ -81,16 +85,9 @@ dt::after {
 }
 
 /* ----- GLOBAL LAYOUT STYLES GO HERE ----- */
-main {
-  background-color: var(--very-light-gray-bg);
-  padding: 1.75rem var(--spacing-sm);
-}
+
+/* ------- END OF GLOBAL STYLES ------- */
 
 /* MEDIA QUERIES*/
 @media screen and (min-width: 600px) {
-  main {
-    padding: var(--spacing-xl) var(--spacing-xxl);
-  }
 }
-
-/* ------- END OF GLOBAL STYLES ------- */

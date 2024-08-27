@@ -1,9 +1,7 @@
 .countryCardItem {
-  flex: 0 1 100%;
-}
-
-.countryCard {
+  flex: 1 0 100%;
   box-shadow: var(--box-shadow);
+  background-color: var(--white);
 }
 
 .countryCardContent {
@@ -30,12 +28,15 @@
 }
 
 /* MEDIA QUERIES*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 576px) {
   .countryCardItem {
-    flex: 0 1 24%;
-    max-width: 24%;
+    flex: 1 1 47%;
+    max-width: 47%;
     box-sizing: border-box;
-    flex-shrink: 1;
+  }
+
+  .countryCardContent {
+    padding-bottom: var(--spacing-sm);
   }
 
   .countryName {

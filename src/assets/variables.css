@@ -11,6 +11,7 @@
 
   /* Shadows */
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+  --box-shadowBtn: rgba(0, 0, 0, 0.2) 0px 1px 8px, rgba(0, 0, 0, 0.14) 0px -1px 8px;
 
   /* Spacing units*/
   --spacing-xxs: 0.5rem;

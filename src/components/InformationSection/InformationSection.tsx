@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
-import Button from "../Button/Button";
 import NeighboursList from "../NeighborsList/NeighborsList";
 import styles from "./InformationSection.module.css";
 
@@ -46,7 +45,6 @@ function InformationSection(): React.JSX.Element {
   return (
     <>
       <div className={styles.infoSection}>
-        <Button>Back</Button>
         <div className={styles.detailContainer}>
           {/* temporary class name */}
           <h2 className={styles.countryName}>{name.common}</h2>

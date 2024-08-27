@@ -35,7 +35,6 @@ function FilterDropDown(): React.JSX.Element {
       styles={{
         control: (baseStyles, state) => ({
           ...baseStyles,
-          padding: "6px 16px",
           borderRadius: "6px",
           border: state.isFocused ? "1px solid black " : "none",
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",

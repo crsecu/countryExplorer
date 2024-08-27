@@ -3,4 +3,5 @@
   flex-wrap: wrap;
   gap: 8px;
   background-color: var(--very-light-gray-bg);
+  margin-top: 0.75rem;
 }

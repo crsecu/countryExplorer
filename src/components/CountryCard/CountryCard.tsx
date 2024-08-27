@@ -23,8 +23,9 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
 
   return (
     <li className={styles.countryCardItem} onClick={clearSearchAndFilter}>
-      <article className={styles.countryCard}>
+      <article>
         <Link
+          className={styles.countryCard}
           to={`/country/${name}/${cca3}`}
           aria-label={`View details about ${name}`}
         >

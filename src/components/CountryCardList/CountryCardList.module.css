@@ -1,7 +1,15 @@
 .countryCardList {
   display: flex;
   flex-wrap: wrap;
-  row-gap: var(--spacing-xl);
+  align-items: stretch;
+  gap: var(--spacing-xl) var(--spacing-lg);
   justify-content: space-between;
   padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* MEDIA QUERIES*/
+@media screen and (min-width: 576px) {
+  .countryCardList {
+    padding: var(--spacing-xl) 0;
+  }
 }
