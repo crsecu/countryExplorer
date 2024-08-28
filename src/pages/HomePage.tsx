@@ -6,7 +6,7 @@ import styles from "./HomePage.module.css";
 function HomePage(): React.JSX.Element {
   return (
     <main className={styles.main}>
-      <form className={styles.filter}>
+      <form className={styles.searchAndFilter_form}>
         <SearchBar />
         <FilterDropDown />
       </form>

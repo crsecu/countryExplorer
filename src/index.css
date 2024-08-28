@@ -84,6 +84,9 @@ dt::after {
   content: ": ";
 }
 
+/* React Select style overrides */
+.filter__control {
+}
 /* ----- GLOBAL LAYOUT STYLES GO HERE ----- */
 
 /* ------- END OF GLOBAL STYLES ------- */

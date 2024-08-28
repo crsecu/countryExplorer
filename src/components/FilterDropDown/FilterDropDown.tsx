@@ -1,5 +1,6 @@
 import Select, { SingleValue } from "react-select";
 import { useCountries } from "../../hooks/useCountries";
+import styles from "./FilterDropDown.module.css";
 
 interface SelectedOptions {
   value: string;
@@ -28,6 +29,7 @@ function FilterDropDown(): React.JSX.Element {
 
   return (
     <Select
+      classNamePrefix="filter"
       options={options}
       onChange={handleChange}
       placeholder={"Filter by Region"}
