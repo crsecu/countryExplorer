@@ -46,3 +46,25 @@
     text-overflow: ellipsis;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .countryCardItem {
+    flex: 1 1 30%;
+    max-width: 30%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .countryCardItem {
+    flex: 1 1 23%;
+    max-width: 23%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  /* Styles for extra-wide displays */
+  .countryCardItem {
+    flex: 1 1 18%;
+    max-width: 18%;
+  }
+}
