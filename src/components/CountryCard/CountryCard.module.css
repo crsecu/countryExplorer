@@ -39,6 +39,7 @@
 @media screen and (min-width: 576px) {
   .countryCardItem {
     flex: 1 1 45%;
+    max-width: 45%;
   }
 
   .countryCardContent {
@@ -56,12 +57,14 @@
 @media screen and (min-width: 992px) {
   .countryCardItem {
     flex: 1 1 28%;
+    max-width: 28%;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .countryCardItem {
     flex: 1 1 21%;
+    max-width: 21%;
   }
 }
 
@@ -69,5 +72,14 @@
   /* Styles for extra-wide displays */
   .countryCardItem {
     flex: 1 1 16%;
+    max-width: 16%;
+  }
+}
+
+@media screen and (min-width: 2300px) {
+  /* Styles for extra-wide displays */
+  .countryCardItem {
+    flex: 1 1 14%;
+    max-width: 14%;
   }
 }

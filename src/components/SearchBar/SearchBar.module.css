@@ -25,6 +25,5 @@
 /* MEDIA QUERIES*/
 @media screen and (max-width: 575px) {
   .searchContainer {
-    margin-bottom: var(--spacing-xl);
   }
 }

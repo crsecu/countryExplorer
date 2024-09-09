@@ -25,3 +25,15 @@
     padding: var(--spacing-lg) 3.75rem;
   }
 }
+
+@media screen and (min-width: 1800px) {
+  .header {
+    padding: var(--spacing-lg) 4.5rem;
+  }
+}
+
+@media screen and (min-width: 2300px) {
+  .header {
+    padding: var(--spacing-lg) 6rem;
+  }
+}
