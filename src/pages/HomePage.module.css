@@ -19,3 +19,15 @@
     font-size: 1.5rem;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 1.75rem var(--spacing-xl);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    padding: 1.75rem 3.75rem;
+  }
+}

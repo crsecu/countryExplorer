@@ -6,3 +6,22 @@
   box-shadow: var(--box-shadow);
   padding: var(--spacing-lg) var(--spacing-sm);
 }
+
+/* MEDIA QUERIES*/
+@media screen and (min-width: 576px) {
+  .header {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    padding: var(--spacing-lg) 3.75rem;
+  }
+}

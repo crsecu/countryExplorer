@@ -49,22 +49,22 @@
 
 @media screen and (min-width: 992px) {
   .countryCardItem {
-    flex: 1 1 30%;
-    max-width: 30%;
+    flex: 1 1 29%;
+    max-width: 29%;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .countryCardItem {
-    flex: 1 1 23%;
-    max-width: 23%;
+    flex: 1 1 21%;
+    max-width: 21%;
   }
 }
 
 @media screen and (min-width: 1800px) {
   /* Styles for extra-wide displays */
   .countryCardItem {
-    flex: 1 1 18%;
-    max-width: 18%;
+    flex: 1 1 16%;
+    max-width: 16%;
   }
 }
