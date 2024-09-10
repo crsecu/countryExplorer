@@ -1,6 +1,5 @@
 import Select, { SingleValue } from "react-select";
 import { useCountries } from "../../hooks/useCountries";
-import styles from "./FilterDropDown.module.css";
 
 interface SelectedOptions {
   value: string;

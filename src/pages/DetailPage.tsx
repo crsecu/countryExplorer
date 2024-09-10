@@ -7,8 +7,10 @@ function DetailPage(): React.JSX.Element {
   return (
     <div className={styles.detailPage}>
       <Button>Back</Button>
-      <MapSection />
-      <InformationSection />
+      <div className={styles.sectionWrapper}>
+        <MapSection />
+        <InformationSection />
+      </div>
     </div>
   );
 }
