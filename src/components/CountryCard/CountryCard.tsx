@@ -42,7 +42,7 @@ function CountryCard({ country }: CountryCardProps): React.JSX.Element {
             <dl className={styles.countryCardInfo}>
               <div>
                 <dt>Population</dt>
-                <dd>{population}</dd>
+                <dd>{population.toLocaleString()}</dd>
               </div>
               <div>
                 <dt>Region</dt>

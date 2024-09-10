@@ -60,7 +60,7 @@ function InformationSection(): React.JSX.Element {
         </dl>
         <dl>
           <dt>Population</dt>
-          <dd>{population}</dd>
+          <dd>{population.toLocaleString()}</dd>
         </dl>
         <dl>
           <dt>Region</dt>
