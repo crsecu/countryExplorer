@@ -1,15 +1,18 @@
 .detailPage {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  flex-direction: column-reverse;
   background-color: var(--very-light-gray-bg);
+}
+
+.sectionWrapper {
 }
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 992px) {
-  .sectionWrapper {
-    display: flex;
-    height: 100%;
+  .detailPage {
     flex-direction: row-reverse;
+  }
+  .sectionWrapper {
+    flex: 1 1 60%;
   }
 }

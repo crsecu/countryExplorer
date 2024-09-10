@@ -6,10 +6,10 @@ import styles from "./DetailPage.module.css";
 function DetailPage(): React.JSX.Element {
   return (
     <div className={styles.detailPage}>
-      <Button>Back</Button>
+      <InformationSection />
       <div className={styles.sectionWrapper}>
+        <Button>Back</Button>
         <MapSection />
-        <InformationSection />
       </div>
     </div>
   );

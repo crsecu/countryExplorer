@@ -14,3 +14,10 @@
 .backArrowIcon {
   min-width: 16px;
 }
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 992px) {
+  .backButton {
+    margin: 1rem;
+  }
+}
