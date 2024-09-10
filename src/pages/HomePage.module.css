@@ -7,6 +7,10 @@
   font-size: 1.5rem;
 }
 
+.searchAndFilter_form > div:last-child {
+  width: 62%;
+}
+
 /* MEDIA QUERIES*/
 @media screen and (min-width: 576px) {
   .main {
@@ -17,6 +21,10 @@
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
+  }
+
+  .searchAndFilter_form > div:last-child {
+    width: inherit;
   }
 }
 

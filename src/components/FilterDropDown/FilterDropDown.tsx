@@ -40,7 +40,7 @@ function FilterDropDown(): React.JSX.Element {
           borderRadius: "6px",
           border: state.isFocused ? "1px solid black " : "none",
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
-          width: "230px",
+          // width: "230px",
         }),
         option: (baseStyle) => ({
           ...baseStyle,
@@ -71,7 +71,7 @@ function FilterDropDown(): React.JSX.Element {
           ...baseStyles,
           marginTop: "4px",
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
-          width: "230px",
+          // width: "230px",
           borderRadius: "6px",
         }),
         singleValue: (baseStyles) => ({
