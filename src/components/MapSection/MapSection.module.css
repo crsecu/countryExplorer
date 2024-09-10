@@ -2,6 +2,7 @@
   flex: 1;
   height: 50vh;
   position: relative;
+  box-shadow: var(--box-shadow);
 }
 
 .map {

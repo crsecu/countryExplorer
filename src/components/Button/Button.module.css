@@ -18,6 +18,9 @@
 /* MEDIA QUERIES */
 @media screen and (min-width: 992px) {
   .backButton {
+    position: absolute;
     margin: 1rem;
+    top: 10px;
+    z-index: 1111;
   }
 }

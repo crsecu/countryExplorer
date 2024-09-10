@@ -92,5 +92,6 @@ dt::after {
 /* ------- END OF GLOBAL STYLES ------- */
 
 /* MEDIA QUERIES*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 992px) {
+  /* This CSS rule overrides Leaflet's default zoom in/out controls */
 }

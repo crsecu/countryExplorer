@@ -1,7 +1,7 @@
 .detailPage {
   display: flex;
   flex-direction: column-reverse;
-  background-color: var(--very-light-gray-bg);
+  background-color: var(--white);
 }
 
 .sectionWrapper {
@@ -14,5 +14,6 @@
   }
   .sectionWrapper {
     flex: 1 1 60%;
+    position: relative;
   }
 }

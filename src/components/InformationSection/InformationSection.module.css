@@ -1,6 +1,6 @@
 .infoSection {
   padding: 1.875rem var(--spacing-md);
-  background-color: var(--very-light-gray-bg);
+  background-color: var(--white);
 }
 
 .neighborsListSection {
