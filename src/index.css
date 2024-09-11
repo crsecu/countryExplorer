@@ -62,6 +62,16 @@ a:visited {
   color: var(--black);
 }
 
+button:hover {
+  background-color: var(--btnHover);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+button:active {
+  background-color: hsl(30, 14%, 85%);
+  transform: var(--active);
+}
+
 ul {
   padding: 0;
   list-style-type: none;
@@ -84,9 +94,31 @@ dt::after {
   content: ": ";
 }
 
-/* React Select style overrides */
-.filter__control {
+/* Leaflet map style overrides */
+.leaflet-control-zoom a {
+  color: var(--very-dark-blue-bg);
+  color: var(--white);
+  background-color: hsl(207deg, 26%, 17%, 0.5);
 }
+
+.leaflet-touch .leaflet-bar {
+  border: 2px solid var(--very-dark-blue-bg);
+}
+
+.leaflet-bar a {
+  border-bottom: 1px solid hsl(207deg, 26%, 17%, 0.7);
+}
+
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+  background-color: var(--very-dark-blue-bg);
+}
+
+/* Leaflet map style overrides */
+.filter__input-container {
+  margin: 0 !important;
+}
+
 /* ----- GLOBAL LAYOUT STYLES GO HERE ----- */
 
 /* ------- END OF GLOBAL STYLES ------- */

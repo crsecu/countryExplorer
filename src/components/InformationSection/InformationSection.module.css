@@ -1,10 +1,13 @@
 .infoSection {
-  padding: 1.875rem var(--spacing-md);
+  padding: 1rem var(--spacing-md);
   background-color: var(--white);
 }
 
 .neighborsListSection {
   padding: var(--spacing-lg) 0;
+  isplay: flex;
+  align-items: baseline;
+  gap: 16px;
 }
 
 .flagThumbnail {
@@ -23,10 +26,14 @@
   font-size: 2rem;
 }
 
-/* MEDIA QUERIES*/
 /* MEDIA QUERIES */
 @media screen and (min-width: 992px) {
   .infoSection {
     flex: 1 1 40%;
+    padding: 1rem 2.5rem;
+  }
+
+  .flagThumbnail {
+    width: 120px;
   }
 }

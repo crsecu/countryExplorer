@@ -5,7 +5,7 @@
   width: fit-content;
   gap: 8px;
   margin: var(--spacing-lg) var(--spacing-sm) 52px var(--spacing-sm); /* TO DO: Change px to rem */
-  padding: 4px 18px;
+  padding: 5px 19px;
   border: none;
   border-radius: 3px;
   background-color: var(--white);
@@ -13,6 +13,8 @@
   margin: 1rem;
   top: 10px;
   z-index: 500;
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 
 .backArrowIcon {
