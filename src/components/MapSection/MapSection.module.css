@@ -12,6 +12,6 @@
 /* MEDIA QUERIES */
 @media screen and (min-width: 992px) {
   .mapSection {
-    height: 100vh;
+    height: 100%;
   }
 }

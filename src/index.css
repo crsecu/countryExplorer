@@ -93,5 +93,14 @@ dt::after {
 
 /* MEDIA QUERIES*/
 @media screen and (min-width: 992px) {
-  /* This CSS rule overrides Leaflet's default zoom in/out controls */
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
 }

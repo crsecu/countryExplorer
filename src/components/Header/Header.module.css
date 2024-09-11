@@ -20,6 +20,11 @@
   }
 }
 
+@media screen and (min-width: 992px) {
+  .header {
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .header {
     padding: var(--spacing-lg) 3.75rem;
