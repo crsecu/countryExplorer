@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  ZoomControl,
+} from "react-leaflet";
 import { useCountries } from "../../hooks/useCountries";
 import { ChangeCenterProps } from "../../types";
 import styles from "./MapSection.module.css";
@@ -23,8 +30,10 @@ function MapSection(): React.JSX.Element {
         center={mapPosition}
         zoom={6}
         scrollWheelZoom={true}
+        zoomControl={false}
         className={styles.map}
       >
+        <ZoomControl position="topright" />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
