@@ -1,11 +1,11 @@
 .infoSection {
   padding: 1rem var(--spacing-md);
-  background-color: var(--white);
+  background-color: var(--very-light-gray-bg);
 }
 
 .neighborsListSection {
   padding: var(--spacing-lg) 0;
-  isplay: flex;
+  display: flex;
   align-items: baseline;
   gap: 16px;
 }
