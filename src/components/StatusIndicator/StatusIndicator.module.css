@@ -1,0 +1,17 @@
+.statusIndicator {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: center;
+  flex: 1;
+}
+
+.statusMessage {
+  font-size: 1.25rem;
+  text-align: center;
+}
+.statusIcon {
+  opacity: 0.85;
+  width: 80px;
+  margin: 0 auto;
+}

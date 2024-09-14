@@ -59,6 +59,11 @@ body {
   font-size: 1rem;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
 }
@@ -131,14 +136,7 @@ dt::after {
 
 /* MEDIA QUERIES*/
 @media screen and (min-width: 992px) {
-  /* html,
-  body,
-  #root {
-    height: 100%;
-  } */
-
   #root {
     display: flex;
-    flex-direction: column;
   }
 }
