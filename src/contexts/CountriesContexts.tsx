@@ -1,4 +1,10 @@
-import { createContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  useCallback,
+  ReactNode,
+} from "react";
 import { Country, CountryDetails } from "../types";
 import { Dispatch, SetStateAction } from "react";
 
@@ -94,25 +100,27 @@ function CountriesProvider({ children }: CountriesProviderProps) {
   }, []);
 
   /* Function that fetches Country Details Data */
-  async function getCountryDetails(countryCode: string) {
-    /* Prevent API calls when currently selected country === previously selected country */
-    if (countryDetailsData?.cca3 === countryCode) return;
+  const getCountryDetails = useCallback(
+    async function (countryCode: string) {
+      /* Prevent API calls when currently selected country === previously selected country */
+      if (countryDetailsData?.cca3 === countryCode) return;
 
-    setCountryDetailsData(null);
-    setIsLoading(true);
-    try {
-      const res = await fetch(
-        `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
-      );
-      const data = await res.json();
-      setCountryDetailsData(data);
-      return data;
-    } catch (err) {
-      console.log("ERROR", err);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+      setIsLoading(true);
+      try {
+        const res = await fetch(
+          `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
+        );
+        const data = await res.json();
+        setCountryDetailsData(data);
+        return data;
+      } catch (err) {
+        console.log("ERROR", err);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [countryDetailsData?.cca3]
+  );
 
   return (
     <CountriesContext.Provider
