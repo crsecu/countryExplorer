@@ -188,7 +188,6 @@ dt::after {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  /* transform: scale(2.5); */
 }
 
 .loadingIndicator:not(:required):after {

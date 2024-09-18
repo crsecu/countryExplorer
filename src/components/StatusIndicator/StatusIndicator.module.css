@@ -9,9 +9,22 @@
 .statusMessage {
   font-size: 1.25rem;
   text-align: center;
+  line-height: 2;
+}
+
+.statusMessage button {
+  margin: 16px auto;
 }
 .statusIcon {
   opacity: 0.85;
   width: 80px;
   margin: 0 auto;
+}
+
+.errorMessage {
+  font-size: 1.375rem;
+}
+
+.suggestionMessage {
+  font-size: 1rem;
 }

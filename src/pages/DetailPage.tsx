@@ -8,7 +8,9 @@ function DetailPage(): React.JSX.Element {
     <div className={styles.detailPage}>
       <InformationSection />
       <div className={`${styles.mapSectionWrapper} mapSectionWrapperGlobal`}>
-        <Button>Back</Button>
+        <Button positionAbsolute={true} backArrow={true}>
+          Back
+        </Button>
         <MapSection />
       </div>
     </div>

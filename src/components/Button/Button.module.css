@@ -1,10 +1,8 @@
-.backButton {
-  position: absolute;
+.button {
   display: flex;
   align-items: center;
   width: fit-content;
   gap: 8px;
-  margin: var(--spacing-lg) var(--spacing-sm) 52px var(--spacing-sm); /* TO DO: Change px to rem */
   padding: 5px 19px;
   border: none;
   border-radius: 3px;
@@ -18,7 +16,12 @@
 }
 
 .backArrowIcon {
-  min-width: 16px;
+  height: 18px;
+  min-width: 18px;
+}
+
+.positionAbsolute {
+  position: absolute;
 }
 
 /* MEDIA QUERIES */

@@ -19,6 +19,8 @@ interface CountriesContextType {
   setFilterByRegion: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
+  error: string | null;
+  setError: Dispatch<SetStateAction<string | null>>;
 }
 
 const CountriesContext = createContext<CountriesContextType | undefined>(
@@ -34,8 +36,10 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [filterByRegion, setFilterByRegion] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   /* Filter countries based on search query */
+  // TO DO: The sequence of searching/filtering might be incorrect - it might be better to filter and then search
   const searchedCountries =
     searchQuery.length > 2
       ? countries.filter((searchedCountry) =>
@@ -60,6 +64,11 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         const res = await fetch(
           `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
         );
+        console.log("res here", res);
+        if (!res.ok)
+          throw new Error(
+            "Unable to load the list of countries. Please check your internet connection or try again later."
+          );
         const data: Country[] = await res.json();
 
         //Manually validate data to ensure it matches expected format
@@ -84,7 +93,10 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
         setCountries(validatedData);
       } catch (err) {
-        console.log("ERROR", err);
+        if (err instanceof Error) {
+          console.log("ERROR", err);
+          setError(err.message);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -106,6 +118,8 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         setFilterByRegion,
         isLoading,
         setIsLoading,
+        error,
+        setError,
       }}
     >
       {children}

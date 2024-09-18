@@ -7,19 +7,26 @@ import styles from "./CountryCardList.module.css";
 /* TO DO: check if component is rendering twice */
 
 function CountryCardList(): React.JSX.Element {
-  const { filteredCountries, isLoading, searchQuery } = useCountries();
-  console.log("this are the countries", searchQuery);
+  const { filteredCountries, isLoading, searchQuery, error } = useCountries();
 
   if (isLoading)
     return (
-      <StatusIndicator img={""} suggestion={""}>
-        Fetching Countries from API
+      <StatusIndicator spinner={true} suggestion="Please wait">
+        Fetching Countries from API...
       </StatusIndicator>
     );
+
+  if (error) {
+    return <StatusIndicator>{error}</StatusIndicator>;
+  }
+
   if (filteredCountries.length === 0)
     return (
-      <StatusIndicator img={noResultsImage} suggestion="Try another name.">
-        No results found for "{searchQuery}"
+      <StatusIndicator
+        img={noResultsImage}
+        suggestion="Please try a different country name, or check if you have selected a region in the top-right corner (e.g., Europe) that may limit the results."
+      >
+        No results found for your query "{searchQuery}".
       </StatusIndicator>
     );
 

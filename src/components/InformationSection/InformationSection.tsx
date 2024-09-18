@@ -33,7 +33,7 @@ function InformationSection(): React.JSX.Element {
         setIsLoading(true);
         try {
           const res = await fetch(
-            `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
+            `${BASE_URL}/alpha1/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
           );
           const data = await res.json();
           setCountryDetailsData(data);
@@ -56,6 +56,7 @@ function InformationSection(): React.JSX.Element {
         img={""}
         suggestion={"Please wait"}
         className="statusIndicatorGlobal"
+        spinner={true}
       >
         Loading...
       </StatusIndicator>
