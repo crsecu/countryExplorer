@@ -15,6 +15,20 @@ function StatusIndicator({
     <div className={styles.statusIndicator}>
       <img src={img} alt="" className={styles.statusIcon} />
       <div className={styles.statusMessage}>
+        <div className="lds-default">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <p>
           <strong>{children}</strong>
         </p>

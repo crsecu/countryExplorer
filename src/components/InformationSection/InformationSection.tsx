@@ -13,6 +13,7 @@ function InformationSection(): React.JSX.Element {
   // extract country code (cca3) from url params
   const { cca3: countryCode } = useParams();
 
+  // Local loading state is needed to prevent stale data from being rendered before the effect runs
   const [isFetchingCountryDetails, setIsFetchingCountryDetails] =
     useState<boolean>(true);
 
@@ -20,10 +21,14 @@ function InformationSection(): React.JSX.Element {
   useEffect(
     function () {
       if (!countryCode) return;
+
       /* Function that fetches Country Details Data */
       async function getCountryDetails(countryCode: string) {
         /* Prevent API calls when currently selected country === previously selected country */
-        if (countryCode === countryDetailsData?.cca3) return;
+        if (countryCode === countryDetailsData?.cca3) {
+          setIsFetchingCountryDetails(false);
+          return;
+        }
         setIsLoading(true);
         try {
           const res = await fetch(
@@ -44,8 +49,7 @@ function InformationSection(): React.JSX.Element {
     [countryCode, countryDetailsData?.cca3, setCountryDetailsData, setIsLoading]
   );
 
-  if (isFetchingCountryDetails || !countryDetailsData)
-    return <p>Loading Details about selected country...</p>;
+  if (isFetchingCountryDetails || !countryDetailsData) return <p></p>;
 
   const {
     name,
