@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useEffect,
-  useState,
-  useCallback,
-  ReactNode,
-} from "react";
+import { createContext, useEffect, useState, ReactNode } from "react";
 import { Country, CountryDetails } from "../types";
 import { Dispatch, SetStateAction } from "react";
 
@@ -18,7 +12,7 @@ interface CountriesContextType {
   countries: Country[];
   searchedCountries: Country[];
   countryDetailsData: CountryDetails | null;
-  getCountryDetails: (countryCode: string) => Promise<CountryDetails>;
+  setCountryDetailsData: Dispatch<SetStateAction<CountryDetails | null>>;
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
   filteredCountries: Country[];
@@ -99,35 +93,12 @@ function CountriesProvider({ children }: CountriesProviderProps) {
     getCountries();
   }, []);
 
-  /* Function that fetches Country Details Data */
-  const getCountryDetails = useCallback(
-    async function (countryCode: string) {
-      /* Prevent API calls when currently selected country === previously selected country */
-      if (countryDetailsData?.cca3 === countryCode) return;
-
-      setIsLoading(true);
-      try {
-        const res = await fetch(
-          `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
-        );
-        const data = await res.json();
-        setCountryDetailsData(data);
-        return data;
-      } catch (err) {
-        console.log("ERROR", err);
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    [countryDetailsData?.cca3]
-  );
-
   return (
     <CountriesContext.Provider
       value={{
         countries,
         searchedCountries,
-        getCountryDetails,
+        setCountryDetailsData,
         countryDetailsData,
         searchQuery,
         setSearchQuery,

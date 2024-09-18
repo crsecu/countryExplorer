@@ -13,7 +13,7 @@ import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import styles from "./MapSection.module.css";
 
 function MapSection(): React.JSX.Element {
-  const { countryDetailsData } = useCountries();
+  const { countryDetailsData, isLoading } = useCountries();
   const [mapPosition, setMapPosition] = useState<[number, number]>([40, 0]);
 
   useEffect(
@@ -23,7 +23,7 @@ function MapSection(): React.JSX.Element {
     [countryDetailsData?.latlng]
   );
 
-  if (!countryDetailsData)
+  if (!countryDetailsData || isLoading)
     return (
       <StatusIndicator img={""} suggestion={"Please wait"}>
         Loading Map

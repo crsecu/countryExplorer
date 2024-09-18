@@ -1,24 +1,50 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
 import NeighboursList from "../NeighborsList/NeighborsList";
 import styles from "./InformationSection.module.css";
 
+const BASE_URL = "https://restcountries.com/v3.1";
+
 function InformationSection(): React.JSX.Element {
-  const { getCountryDetails, countryDetailsData, isLoading } = useCountries();
+  const { countryDetailsData, setCountryDetailsData, setIsLoading } =
+    useCountries();
+
   // extract country code (cca3) from url params
   const { cca3: countryCode } = useParams();
+
+  const [isFetchingCountryDetails, setIsFetchingCountryDetails] =
+    useState<boolean>(true);
 
   // This effect is needed to ensure data fetch happens whenever the route changes
   useEffect(
     function () {
       if (!countryCode) return;
+      /* Function that fetches Country Details Data */
+      async function getCountryDetails(countryCode: string) {
+        /* Prevent API calls when currently selected country === previously selected country */
+        if (countryCode === countryDetailsData?.cca3) return;
+        setIsLoading(true);
+        try {
+          const res = await fetch(
+            `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
+          );
+          const data = await res.json();
+          setCountryDetailsData(data);
+        } catch (err) {
+          console.log("ERROR", err);
+        } finally {
+          setIsFetchingCountryDetails(false);
+          setIsLoading(false);
+        }
+      }
+
       getCountryDetails(countryCode);
     },
-    [countryCode, getCountryDetails] //revisit this - might need useCallback to prevent infinit re-rendering when getCountryDetails is added to dependency array
+    [countryCode, countryDetailsData?.cca3, setCountryDetailsData, setIsLoading]
   );
 
-  if (isLoading || !countryDetailsData)
+  if (isFetchingCountryDetails || !countryDetailsData)
     return <p>Loading Details about selected country...</p>;
 
   const {
@@ -32,7 +58,6 @@ function InformationSection(): React.JSX.Element {
     region,
     subregion,
     tld,
-    latlng,
   } = countryDetailsData;
 
   const currency = Object.values(currencies)[0].name;
