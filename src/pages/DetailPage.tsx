@@ -7,7 +7,7 @@ function DetailPage(): React.JSX.Element {
   return (
     <div className={styles.detailPage}>
       <InformationSection />
-      <div className={styles.sectionWrapper}>
+      <div className={`${styles.mapSectionWrapper} mapSectionWrapperGlobal`}>
         <Button>Back</Button>
         <MapSection />
       </div>

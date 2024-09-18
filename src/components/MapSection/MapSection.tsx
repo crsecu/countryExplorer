@@ -9,7 +9,6 @@ import {
 } from "react-leaflet";
 import { useCountries } from "../../hooks/useCountries";
 import { ChangeCenterProps } from "../../types";
-import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import styles from "./MapSection.module.css";
 
 function MapSection(): React.JSX.Element {
@@ -24,11 +23,7 @@ function MapSection(): React.JSX.Element {
   );
 
   if (!countryDetailsData || isLoading)
-    return (
-      <StatusIndicator img={""} suggestion={"Please wait"}>
-        Loading Map
-      </StatusIndicator>
-    );
+    return <span className="mapLoadingSpacer"></span>;
 
   return (
     <div className={styles.mapSection}>

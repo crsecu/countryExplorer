@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
 import NeighboursList from "../NeighborsList/NeighborsList";
+import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import styles from "./InformationSection.module.css";
 
 const BASE_URL = "https://restcountries.com/v3.1";
 
 function InformationSection(): React.JSX.Element {
-  const { countryDetailsData, setCountryDetailsData, setIsLoading } =
+  const { countryDetailsData, setCountryDetailsData, isLoading, setIsLoading } =
     useCountries();
 
   // extract country code (cca3) from url params
@@ -49,7 +50,16 @@ function InformationSection(): React.JSX.Element {
     [countryCode, countryDetailsData?.cca3, setCountryDetailsData, setIsLoading]
   );
 
-  if (isFetchingCountryDetails || !countryDetailsData) return <p></p>;
+  if (isLoading || !countryDetailsData)
+    return (
+      <StatusIndicator
+        img={""}
+        suggestion={"Please wait"}
+        className="statusIndicatorGlobal"
+      >
+        Loading Map
+      </StatusIndicator>
+    );
 
   const {
     name,

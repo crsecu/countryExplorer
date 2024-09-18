@@ -139,6 +139,10 @@ dt::after {
   #root {
     display: flex;
   }
+
+  .statusIndicatorGlobal + .mapSectionWrapperGlobal {
+    flex: initial;
+  }
 }
 
 /* Loader */
@@ -220,6 +224,7 @@ dt::after {
   top: 51.52px;
   left: 62.29579px;
 }
+
 @keyframes lds-default {
   0%,
   20%,

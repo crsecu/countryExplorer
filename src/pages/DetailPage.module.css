@@ -3,7 +3,7 @@
   flex-direction: column-reverse;
 }
 
-.sectionWrapper {
+.mapSectionWrapper {
   position: relative;
 }
 
@@ -13,7 +13,7 @@
     flex-direction: row-reverse;
     flex-grow: 1;
   }
-  .sectionWrapper {
+  .mapSectionWrapper {
     flex: 1 1 60%;
   }
 }
