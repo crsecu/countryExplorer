@@ -17,21 +17,7 @@ function StatusIndicator({
     <div className={`${styles.statusIndicator} ${className ? className : ""}`}>
       <img src={img} alt="" className={styles.statusIcon} />
       <div className={styles.statusMessage}>
-        <div className="lds-default">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        
+        <div className="loadingIndicator">Loading&#8230;</div>
         <p>
           <strong>{children}</strong>
         </p>

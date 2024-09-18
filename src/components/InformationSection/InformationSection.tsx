@@ -57,7 +57,7 @@ function InformationSection(): React.JSX.Element {
         suggestion={"Please wait"}
         className="statusIndicatorGlobal"
       >
-        Loading Map
+        Loading...
       </StatusIndicator>
     );
 

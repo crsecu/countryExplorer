@@ -1,6 +1,7 @@
 .detailPage {
   display: flex;
   flex-direction: column-reverse;
+  flex: 1;
 }
 
 .mapSectionWrapper {
@@ -11,8 +12,8 @@
 @media screen and (min-width: 992px) {
   .detailPage {
     flex-direction: row-reverse;
-    flex-grow: 1;
   }
+
   .mapSectionWrapper {
     flex: 1 1 60%;
   }
