@@ -2,7 +2,7 @@ import { createContext, useEffect, useState, ReactNode } from "react";
 import { Country, CountryDetails } from "../types";
 import { Dispatch, SetStateAction } from "react";
 
-const BASE_URL = "https://restcountries.com/v3.1";
+const BASE_URL = "https://restcountries.com/v3.1a";
 
 interface CountriesProviderProps {
   children: ReactNode;
@@ -19,8 +19,8 @@ interface CountriesContextType {
   setFilterByRegion: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
-  error: string | null;
-  setError: Dispatch<SetStateAction<string | null>>;
+  error: string;
+  setError: Dispatch<SetStateAction<string>>;
 }
 
 const CountriesContext = createContext<CountriesContextType | undefined>(
@@ -36,7 +36,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [filterByRegion, setFilterByRegion] = useState<string>("");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>("");
 
   /* Filter countries based on search query */
   // TO DO: The sequence of searching/filtering might be incorrect - it might be better to filter and then search
@@ -64,7 +64,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         const res = await fetch(
           `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
         );
-        console.log("res here", res);
+
         if (!res.ok)
           throw new Error(
             "Unable to load the list of countries. Please check your internet connection or try again later."

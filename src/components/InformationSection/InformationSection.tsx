@@ -3,13 +3,20 @@ import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
 import NeighboursList from "../NeighborsList/NeighborsList";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
+import Button from "../Button/Button";
 import styles from "./InformationSection.module.css";
 
 const BASE_URL = "https://restcountries.com/v3.1";
 
 function InformationSection(): React.JSX.Element {
-  const { countryDetailsData, setCountryDetailsData, isLoading, setIsLoading } =
-    useCountries();
+  const {
+    countryDetailsData,
+    setCountryDetailsData,
+    isLoading,
+    setIsLoading,
+    error,
+    setError,
+  } = useCountries();
 
   // extract country code (cca3) from url params
   const { cca3: countryCode } = useParams();
@@ -31,14 +38,23 @@ function InformationSection(): React.JSX.Element {
           return;
         }
         setIsLoading(true);
+        setError("");
         try {
           const res = await fetch(
-            `${BASE_URL}/alpha1/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
+            `${BASE_URL}/alpha/${countryCode}?fields=name,capital,population,flags,borders,languages,currencies,tld,region,subregion,latlng,cca3`
           );
+          console.log("API RESPONSE", res);
+          if (!res.ok)
+            throw new Error(
+              "Something went wrong while loading the information :( "
+            );
           const data = await res.json();
           setCountryDetailsData(data);
         } catch (err) {
-          console.log("ERROR", err);
+          if (err instanceof Error) {
+            console.log("ERROR in DETAIL PAGE", err);
+            setError(err.message);
+          }
         } finally {
           setIsFetchingCountryDetails(false);
           setIsLoading(false);
@@ -47,10 +63,28 @@ function InformationSection(): React.JSX.Element {
 
       getCountryDetails(countryCode);
     },
-    [countryCode, countryDetailsData?.cca3, setCountryDetailsData, setIsLoading]
+    [
+      countryCode,
+      countryDetailsData?.cca3,
+      setCountryDetailsData,
+      setError,
+      setIsLoading,
+    ]
   );
+  if (error || !countryDetailsData) {
+    return (
+      <StatusIndicator
+        className="statusIndicatorGlobal"
+        overlay={true}
+        buttonComponent={Button}
+        callbackFn={setError}
+      >
+        {error}
+      </StatusIndicator>
+    );
+  }
 
-  if (isLoading || !countryDetailsData)
+  if (isFetchingCountryDetails || !countryDetailsData)
     return (
       <StatusIndicator
         img={""}

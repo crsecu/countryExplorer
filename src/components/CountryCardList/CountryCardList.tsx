@@ -3,11 +3,19 @@ import CountryCard from "../CountryCard/CountryCard";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import noResultsImage from "../../assets/icons/no-results.png";
 import styles from "./CountryCardList.module.css";
+import Button from "../Button/Button";
 
 /* TO DO: check if component is rendering twice */
 
 function CountryCardList(): React.JSX.Element {
-  const { filteredCountries, isLoading, searchQuery, error } = useCountries();
+  const {
+    filteredCountries,
+    countries,
+    isLoading,
+    searchQuery,
+    error,
+    setError,
+  } = useCountries();
 
   if (isLoading)
     return (
@@ -16,11 +24,20 @@ function CountryCardList(): React.JSX.Element {
       </StatusIndicator>
     );
 
-  if (error) {
-    return <StatusIndicator>{error}</StatusIndicator>;
+  // TO DO: When button is clicked, a page refresh would be better than taking the user back to main page
+  if (error && countries.length === 0) {
+    return (
+      <StatusIndicator
+        buttonComponent={Button}
+        callbackFn={setError}
+        overlay={true}
+      >
+        {error}
+      </StatusIndicator>
+    );
   }
 
-  if (filteredCountries.length === 0)
+  if (filteredCountries.length === 0 && countries.length > 0)
     return (
       <StatusIndicator
         img={noResultsImage}
