@@ -2,7 +2,7 @@ import { createContext, useEffect, useState, ReactNode } from "react";
 import { Country, CountryDetails } from "../types";
 import { Dispatch, SetStateAction } from "react";
 
-const BASE_URL = "https://restcountries.com/v3.1a";
+const BASE_URL = "https://restcountries.com/v3.1";
 
 interface CountriesProviderProps {
   children: ReactNode;
