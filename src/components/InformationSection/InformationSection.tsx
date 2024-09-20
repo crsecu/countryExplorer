@@ -77,7 +77,7 @@ function InformationSection(): React.JSX.Element {
         className="statusIndicatorGlobal"
         overlay={true}
         buttonComponent={Button}
-        callbackFn={setError}
+        stateSetter={setError}
       >
         {error}
       </StatusIndicator>

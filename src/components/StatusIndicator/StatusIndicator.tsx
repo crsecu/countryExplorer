@@ -9,8 +9,9 @@ interface StatusIndicator {
   className?: string;
   spinner?: boolean;
   overlay?: boolean;
-  callbackFn?: Dispatch<SetStateAction<string>>;
   buttonComponent?: React.FC<ButtonProps>;
+  stateSetter?: Dispatch<SetStateAction<string>>;
+  callbackFn?: () => Promise<void>;
 }
 
 function StatusIndicator({
@@ -20,8 +21,9 @@ function StatusIndicator({
   className,
   spinner = false,
   overlay = false,
-  callbackFn,
   buttonComponent: Button,
+  stateSetter,
+  callbackFn,
 }: StatusIndicator): React.JSX.Element {
   return (
     <div className={`${styles.statusIndicator} ${className ? className : ""}`}>
@@ -34,7 +36,11 @@ function StatusIndicator({
         </p>
         <p className={styles.suggestionMessage}>{suggestion}</p>
         {Button && (
-          <Button navigateTo="/" clearError={callbackFn}>
+          <Button
+            navigateTo="/"
+            clearError={stateSetter}
+            callbackFn={callbackFn}
+          >
             Back to Home
           </Button>
         )}

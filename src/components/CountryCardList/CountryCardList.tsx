@@ -15,6 +15,7 @@ function CountryCardList(): React.JSX.Element {
     searchQuery,
     error,
     setError,
+    getCountries,
   } = useCountries();
 
   if (isLoading)
@@ -29,8 +30,9 @@ function CountryCardList(): React.JSX.Element {
     return (
       <StatusIndicator
         buttonComponent={Button}
-        callbackFn={setError}
+        stateSetter={setError}
         overlay={true}
+        callbackFn={getCountries}
       >
         {error}
       </StatusIndicator>

@@ -9,6 +9,7 @@ export interface ButtonProps {
   positionAbsolute?: boolean;
   backArrow?: boolean;
   clearError?: Dispatch<SetStateAction<string>>;
+  callbackFn?: () => Promise<void>;
 }
 
 function Button({
@@ -17,12 +18,13 @@ function Button({
   positionAbsolute = false,
   backArrow = false,
   clearError,
+  callbackFn,
 }: ButtonProps): React.JSX.Element {
   const navigate = useNavigate();
-  console.log("222222", typeof clearError);
 
   function handleNavigation() {
     if (clearError) clearError("");
+    if (callbackFn) callbackFn();
 
     // TypeScript needs to know whether navigateTo is a number (for history navigation)
     // or a string (for path navigation), so we use the if statement to help TS select

@@ -1,4 +1,10 @@
-import { createContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  useCallback,
+  ReactNode,
+} from "react";
 import { Country, CountryDetails } from "../types";
 import { Dispatch, SetStateAction } from "react";
 
@@ -21,6 +27,7 @@ interface CountriesContextType {
   setIsLoading: Dispatch<SetStateAction<boolean>>;
   error: string;
   setError: Dispatch<SetStateAction<string>>;
+  getCountries: () => Promise<void>;
 }
 
 const CountriesContext = createContext<CountriesContextType | undefined>(
@@ -57,53 +64,56 @@ function CountriesProvider({ children }: CountriesProviderProps) {
     : searchedCountries;
 
   /* Functions that fetches data about every country in the world */
-  useEffect(function () {
-    async function getCountries() {
-      setIsLoading(true);
-      try {
-        const res = await fetch(
-          `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
+  const getCountries = useCallback(async function () {
+    setIsLoading(true);
+    try {
+      const res = await fetch(
+        `${BASE_URL}/all?fields=name,capital,population,flags,region,borders,cca3`
+      );
+
+      if (!res.ok)
+        throw new Error(
+          "Unable to load the list of countries. Please check your internet connection or try again later."
         );
+      const data: Country[] = await res.json();
 
-        if (!res.ok)
-          throw new Error(
-            "Unable to load the list of countries. Please check your internet connection or try again later."
-          );
-        const data: Country[] = await res.json();
+      //Manually validate data to ensure it matches expected format
+      const validatedData: Country[] = data.map(
+        (item: Country): Country => ({
+          name: {
+            common: item.name.common,
+            official: item.name.official,
+            nativeName: {},
+          },
+          capital: item.capital,
+          population: item.population,
+          region: item.region,
+          cca3: item.cca3,
+          borders: item.borders,
+          flags: {
+            svg: item.flags.svg,
+            alt: item.flags.alt,
+          },
+        })
+      );
 
-        //Manually validate data to ensure it matches expected format
-        const validatedData: Country[] = data.map(
-          (item: Country): Country => ({
-            name: {
-              common: item.name.common,
-              official: item.name.official,
-              nativeName: {},
-            },
-            capital: item.capital,
-            population: item.population,
-            region: item.region,
-            cca3: item.cca3,
-            borders: item.borders,
-            flags: {
-              svg: item.flags.svg,
-              alt: item.flags.alt,
-            },
-          })
-        );
-
-        setCountries(validatedData);
-      } catch (err) {
-        if (err instanceof Error) {
-          console.log("ERROR", err);
-          setError(err.message);
-        }
-      } finally {
-        setIsLoading(false);
+      setCountries(validatedData);
+    } catch (err) {
+      if (err instanceof Error) {
+        console.log("ERROR", err);
+        setError(err.message);
       }
+    } finally {
+      setIsLoading(false);
     }
-
-    getCountries();
   }, []);
+
+  useEffect(
+    function () {
+      getCountries();
+    },
+    [getCountries]
+  );
 
   return (
     <CountriesContext.Provider
@@ -120,6 +130,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
         setIsLoading,
         error,
         setError,
+        getCountries,
       }}
     >
       {children}
