@@ -10,12 +10,15 @@ interface StatusIndicator {
   spinner?: boolean;
   overlay?: boolean;
   buttonComponent?: React.FC<ButtonProps>;
+  /*TO DO: research how to enforce that buttonName prop is required only when buttonComponent is provided */
+  buttonName?: string /* buttonName is required when buttonComponent is present*/;
   stateSetter?: Dispatch<SetStateAction<string>>;
   callbackFn?: () => Promise<void>;
 }
 
 function StatusIndicator({
   children,
+  buttonName,
   img,
   suggestion,
   className,
@@ -35,13 +38,13 @@ function StatusIndicator({
           <strong>{children}</strong>
         </p>
         <p className={styles.suggestionMessage}>{suggestion}</p>
-        {Button && (
+        {Button && children && (
           <Button
             navigateTo="/"
             clearError={stateSetter}
             callbackFn={callbackFn}
           >
-            Back to Home
+            {buttonName}
           </Button>
         )}
       </div>

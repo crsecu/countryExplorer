@@ -33,6 +33,8 @@ function CountryCardList(): React.JSX.Element {
         stateSetter={setError}
         overlay={true}
         callbackFn={getCountries}
+        suggestion="Please check your internet connection, or try again."
+        buttonName="Retry"
       >
         {error}
       </StatusIndicator>

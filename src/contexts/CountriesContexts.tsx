@@ -73,7 +73,7 @@ function CountriesProvider({ children }: CountriesProviderProps) {
 
       if (!res.ok)
         throw new Error(
-          "Unable to load the list of countries. Please check your internet connection or try again later."
+          "We encountered an issue loading the list of countries."
         );
       const data: Country[] = await res.json();
 

@@ -46,7 +46,7 @@ function InformationSection(): React.JSX.Element {
           console.log("API RESPONSE", res);
           if (!res.ok)
             throw new Error(
-              "Something went wrong while loading the information :( "
+              "We encountered an issue while trying to load the country details. You can return to the home page to explore other countries."
             );
           const data = await res.json();
           setCountryDetailsData(data);
@@ -71,20 +71,8 @@ function InformationSection(): React.JSX.Element {
       setIsLoading,
     ]
   );
-  if (error || !countryDetailsData) {
-    return (
-      <StatusIndicator
-        className="statusIndicatorGlobal"
-        overlay={true}
-        buttonComponent={Button}
-        stateSetter={setError}
-      >
-        {error}
-      </StatusIndicator>
-    );
-  }
 
-  if (isFetchingCountryDetails || !countryDetailsData)
+  if (isFetchingCountryDetails)
     return (
       <StatusIndicator
         img={""}
@@ -95,6 +83,20 @@ function InformationSection(): React.JSX.Element {
         Loading...
       </StatusIndicator>
     );
+
+  if (error || !countryDetailsData) {
+    return (
+      <StatusIndicator
+        className="statusIndicatorGlobal"
+        overlay={true}
+        buttonComponent={Button}
+        buttonName="Back to Home"
+        stateSetter={setError}
+      >
+        {error}
+      </StatusIndicator>
+    );
+  }
 
   const {
     name,
