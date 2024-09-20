@@ -38,13 +38,20 @@ function FilterDropDown(): React.JSX.Element {
           ...baseStyles,
           borderRadius: "6px",
           border: state.isFocused ? "1px solid black " : "none",
+          "&:hover": {
+            border: "1px solid #abb7ca",
+          },
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
           padding: "8px 16px",
         }),
-        option: (baseStyle) => ({
+        option: (baseStyle, state) => ({
           ...baseStyle,
           fontSize: "16px",
           color: "black",
+          backgroundColor: state.isSelected ? "#b3d4ff" : "inherit",
+          "&:hover": {
+            backgroundColor: state.isSelected ? "#85c1ff" : "#f0f4ff",
+          },
           paddingLeft: "30px",
           fontWeight: 600,
         }),

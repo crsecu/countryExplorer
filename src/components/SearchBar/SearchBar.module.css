@@ -12,7 +12,14 @@
   padding: 1.2rem 2rem 1.2rem 4rem;
   font-size: 1rem;
   width: 100%;
-  /* TO DO: Increase input field width for desktop */
+}
+
+.searchBar:hover {
+  outline: 1px solid #abb7ca;
+}
+
+.searchBar:focus {
+  outline: 1px solid black !important;
 }
 
 .searchIcon {
