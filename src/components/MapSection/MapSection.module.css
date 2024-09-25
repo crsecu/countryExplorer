@@ -1,7 +1,6 @@
 .mapSection {
   flex: 1;
   height: 50vh;
-  box-shadow: var(--box-shadow);
 }
 
 .map {
