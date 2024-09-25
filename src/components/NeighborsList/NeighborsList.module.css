@@ -1,7 +1,7 @@
 .neighborsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   background-color: var(--very-light-gray-bg);
   margin-top: 0.75rem;
 }

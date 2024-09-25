@@ -14,13 +14,9 @@
   width: 100%;
 }
 
-.searchBar:hover {
-  outline: 1px solid #abb7ca;
-}
-
-.searchBar:focus {
+/* .searchBar:focus {
   outline: 1px solid black !important;
-}
+} */
 
 .searchIcon {
   width: 20px;

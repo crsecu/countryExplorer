@@ -3,7 +3,7 @@ import styles from "./NavBar.module.css";
 
 function NavBar(): React.JSX.Element {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <NavLink to="/" aria-label="Go to homepage">
         <span className={styles.logoTitle}>Where in the world?</span>
       </NavLink>

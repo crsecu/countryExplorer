@@ -13,7 +13,6 @@ function InformationSection(): React.JSX.Element {
   const {
     countryDetailsData,
     setCountryDetailsData,
-    isLoading,
     setIsLoading,
     error,
     setError,
