@@ -32,8 +32,8 @@ function StatusIndicator({
     <div className={`${styles.statusIndicator} ${className ? className : ""}`}>
       {img && <img src={img} alt="" className={styles.statusIcon} />}
       <div className={styles.statusMessage}>
-        {spinner && <div className="loadingIndicator"></div>}
-        {overlay && <div className="overlay"></div>}
+        {spinner && <div className={styles.loadingIndicator}></div>}
+        {overlay && <div className={styles.overlay}></div>}
         <p className={styles.errorMessage}>
           <strong>{children}</strong>
         </p>

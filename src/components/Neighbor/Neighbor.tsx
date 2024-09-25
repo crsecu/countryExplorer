@@ -15,7 +15,7 @@ function Neighbor({ neighbor }: NeighborProps): React.JSX.Element {
     return country.cca3 === neighbor;
   });
 
-  const neighborName: string = neighborData[0].name?.common;
+  const neighborName: string = neighborData[0]?.name.common;
 
   return (
     <li className={styles.neighbor}>
