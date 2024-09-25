@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCountries } from "../../hooks/useCountries";
 import { useParams } from "react-router-dom";
+import { objectIsEmpty } from "../../utils/objectIsEmpty";
 import NeighboursList from "../NeighborsList/NeighborsList";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import Button from "../Button/Button";
@@ -111,12 +112,17 @@ function InformationSection(): React.JSX.Element {
     tld,
   } = countryDetailsData;
 
-  const currency = Object.values(currencies)[0].name;
-  const language = Object.values(languages)[0];
-  const nativeName =
-    Object.keys(name.nativeName).length > 0
-      ? Object.values(name.nativeName)[0].official
-      : "Unknown";
+  const currency = objectIsEmpty(currencies)
+    ? "No data available"
+    : Object.values(currencies)[0].name;
+
+  const language = objectIsEmpty(languages)
+    ? "No data available"
+    : Object.values(languages)[0];
+
+  const nativeName = objectIsEmpty(name.nativeName)
+    ? "No data available"
+    : Object.values(name.nativeName)[0].official;
 
   return (
     <>
@@ -140,20 +146,20 @@ function InformationSection(): React.JSX.Element {
         </dl>
         <dl>
           <dt>Region</dt>
-          <dd>{region}</dd>
+          <dd>{region ? region : "No data available"}</dd>
         </dl>
         <dl>
           <dt>Sub Region</dt>
-          <dd>{subregion}</dd>
+          <dd>{subregion ? subregion : "No data available"}</dd>
         </dl>
         <dl>
           <dt>Capital</dt>
-          <dd>{capital[0]}</dd>
+          <dd>{capital.length ? capital[0] : "No data available"}</dd>
         </dl>
         <br></br>
         <dl>
           <dt>Top Level Domain</dt>
-          <dd>{tld[0]}</dd>
+          <dd>{tld.length ? tld[0] : "No data available"}</dd>
         </dl>
         <dl>
           <dt>Currencies</dt>
