@@ -2,6 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  background-color: var(--very-light-gray-bg);
+  background-color: var(--background);
   margin-top: 0.75rem;
 }

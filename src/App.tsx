@@ -20,7 +20,7 @@ function App(): React.JSX.Element {
   );
 
   return (
-    <div data-theme={theme}>
+    <div className="app" data-theme={theme}>
       <CountriesProvider>
         <BrowserRouter>
           <Header>

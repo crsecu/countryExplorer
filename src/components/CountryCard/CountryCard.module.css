@@ -2,7 +2,7 @@
   flex: 1 0 85%;
   max-width: 85%;
   box-shadow: var(--box-shadow);
-  background-color: var(--white);
+  background-color: var(--ui-elements-color);
   border-radius: 6px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .countryCardContent {
-  background-color: var(--white);
+  background-color: var(--ui-elements-color);
   padding: var(--spacing-lg);
   padding-bottom: var(--spacing-xl);
   border-radius: 0 0 6px 6px;

@@ -10,6 +10,6 @@
   box-shadow: var(--box-shadowNeighbor);
   border-radius: 3px;
   flex-grow: 1;
-  background-color: var(--white);
+  background-color: var(--ui-elements-color);
   text-align: center;
 }
