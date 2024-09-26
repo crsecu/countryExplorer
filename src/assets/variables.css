@@ -9,15 +9,20 @@
   --white: hsl(0, 0%, 100%); /* White (Dark Mode Text & Light Mode Elements) */
   --black: hsl(0, 0%, 0%); /* Black (Light Mode Text) */
 
+  --background: hsl(0, 0%, 98%); /* Very Light Gray (Light Mode Background) */
+
+
+
   --btnHover: hsl(30, 14%, 95%);
 
   /* Shadows */
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-  --box-shadowNeighbor: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  --box-shadowNeighbor: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+    rgba(0, 0, 0, 0.24) 0px 1px 2px;
   /* --box-shadowBtn: rgba(0, 0, 0, 0.2) 0px 1px 8px, rgba(0, 0, 0, 0.14) 0px -1px 8px; */
   --box-shadowBtn: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-  rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-  rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
   /* Spacing units*/
   --spacing-xxs: 0.5rem;
@@ -29,7 +34,10 @@
 
   /* States */
   --active: scale(0.97);
-
 }
 
-/* */
+/* DARK MODE */
+
+[data-theme="dark"] {
+  --background: hsl(207, 26%, 17%); /* Very Dark Blue (Dark Mode Background) */
+}
