@@ -1,38 +1,26 @@
 /* prettier-ignore */
 :root {
-  /* Colors */
-  --dark-blue: hsl(209, 23%, 22%); /* Dark Blue (Dark Mode Elements) $$$*/ 
-  --very-dark-blue-bg: hsl(207, 26%, 17%); /* Very Dark Blue (Dark Mode Background) $$$*/
-  --very-dark-blue-text: hsl(200, 15%, 8%); /* Very Dark Blue (Light Mode Text) $$$*/
-  --dark-gray: hsl(0, 0%, 52%); /* Dark Gray (Light Mode Input) $$$*/
-  --very-light-gray-bg: hsl(0, 0%, 98%); /* Very Light Gray (Light Mode Background) $$$*/
-  --ui-color: hsl(0, 0%, 100%); /* White (Dark Mode Text & Light Mode Elements) $$$*/
-  --black: hsl(0, 0%, 0%); /* Black (Light Mode Text) NOT PART OF BRANDING COLORS*/ 
-
+  /*Brand Colors Light Theme*/
   --background: hsl(0, 0%, 98%); /* Very Light Gray (Light Mode Background) */
   --ui-text-color: hsl(200, 15%, 8%); /* Very Dark Blue (Light Mode Text) */
   --ui-elements-color: hsl(0, 0%, 100%); /* White (Light Mode Elements) */
   --input: hsl(0, 0%, 52%); /* Dark Gray (Light Mode Input) */
   
-
-
-
-  --btnHover: hsl(30, 14%, 95%);
-
-  /* Shadows */
+  /* Shadows Light Theme*/
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-  --box-shadowNeighbor: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-  --box-shadowBtn: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-
-  --btnHoverShadow:rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
-  --btn-active: linear-gradient(to bottom, hsl(30, 25%, 98%), hsl(32, 14%, 79%));
+  --box-shadow-btn: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+  rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+  rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  --box-shadow-neighbor: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   --input-controls-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
   rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    
-    
+
+  /* States Light Theme*/
+  --btn-hover: hsl(30, 14%, 95%);
+  --btn-hover-shadow:rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  --btn-active: linear-gradient(to bottom, hsl(30, 25%, 98%), hsl(32, 14%, 79%));
+
+  --active: scale(0.97);
 
   /* Spacing units*/
   --spacing-xxs: 0.5rem;
@@ -41,31 +29,29 @@
   --spacing-lg: 1.75rem;
   --spacing-xl: 2.75rem;
   --spacing-xxl: 5rem;
-
-  /* States */
-  --active: scale(0.97);
 }
 
 /* DARK MODE */
-
 [data-theme="dark"] {
+  /*Brand Colors Dark Theme*/
   --background: hsl(207, 26%, 17%); /* Very Dark Blue (Dark Mode Background) */
   --ui-text-color: hsl(0, 0%, 100%); /* White (Dark Mode Text) */
   --ui-elements-color: hsl(209, 23%, 22%); /* Dark Blue (Dark Mode Elements) */
   --input: hsl(0, 0%, 100%); /* White (Dark Mode Input) */
 
+  /* Shadows Dark Theme*/
   --box-shadow: rgba(24, 25, 26, 0.34) 0px 2px 8px 0px;
-  --box-shadowBtn: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+  --box-shadow-btn: rgba(0, 0, 0, 0.19) 0px 10px 20px,
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-  --box-shadowNeighbor: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+  --box-shadow-neighbor: rgba(0, 0, 0, 0.12) 0px 1px 3px,
     rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  --input-controls-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
-  --btnHover: hsl(210, 24%, 15%);
-
-  --btnHoverShadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+  /* States Dark Theme*/
+  --btn-hover: hsl(210, 24%, 15%);
+  --btn-hover-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
   --btn-active: linear-gradient(
     to bottom,
     hsl(208, 25%, 45%),
@@ -77,7 +63,4 @@
     hsl(209, 23%, 22%),
     hsl(200, 15%, 8%)
   );
-
-  --input-controls-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
-    rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

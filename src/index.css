@@ -75,7 +75,8 @@ a:visited {
   color: var(--ui-text-color);
 }
 
-a:focus {
+a:focus,
+button:focus {
   outline-offset: 6px;
 }
 
@@ -83,13 +84,13 @@ button {
   cursor: pointer;
   color: var(--ui-text-color);
   background-color: var(--ui-elements-color);
-  box-shadow: var(--box-shadowBtn);
+  box-shadow: var(--box-shadow-btn);
 }
 
 button:hover,
 a:hover {
-  background-color: var(--btnHover);
-  box-shadow: var(--btnHoverShadow);
+  background-color: var(--btn-hover);
+  box-shadow: var(--btn-hover-shadow);
 }
 
 button:active,
@@ -103,12 +104,9 @@ a:active {
   background: var(--btn-active-neighbor);
 }
 
-button:focus {
-  outline-offset: 6px;
-}
-
 input {
   background-color: var(--ui-elements-color);
+  color: var(--ui-text-color);
 }
 
 input::placeholder {
@@ -116,7 +114,7 @@ input::placeholder {
 }
 
 input:focus {
-  outline: 3px solid black;
+  outline: 3px solid var(--ui-text-color);
 }
 
 input:hover {

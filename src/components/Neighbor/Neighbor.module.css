@@ -7,7 +7,7 @@
 .neighbor a {
   display: block;
   padding: 8px;
-  box-shadow: var(--box-shadowNeighbor);
+  box-shadow: var(--box-shadow-neighbor);
   border-radius: 3px;
   flex-grow: 1;
   background-color: var(--ui-elements-color);

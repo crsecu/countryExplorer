@@ -45,6 +45,7 @@ function FilterDropDown(): React.JSX.Element {
           },
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
           padding: "8px 16px",
+          cursor: "pointer",
         }),
         option: (baseStyle, state) => ({
           ...baseStyle,
@@ -56,6 +57,7 @@ function FilterDropDown(): React.JSX.Element {
           },
           paddingLeft: "30px",
           fontWeight: 600,
+          cursor: "pointer",
         }),
         placeholder: (baseStyles) => ({
           ...baseStyles,
