@@ -29,6 +29,11 @@
   --spacing-lg: 1.75rem;
   --spacing-xl: 2.75rem;
   --spacing-xxl: 5rem;
+
+  /* React Select Theme based colors */
+  --option-hover-bg-color: hsl(224, 100%, 97%);
+  --option-hover-text-color: hsl(200, 15%, 8%);
+  --option-selected-bg-color: hsla(224, 30%, 62%, 0.35);
 }
 
 /* DARK MODE */
@@ -63,4 +68,9 @@
     hsl(209, 23%, 22%),
     hsl(200, 15%, 8%)
   );
+
+  /* React Select Theme based colors */
+  --option-hover-bg-color: hsla(223, 44%, 78%, 0.25);
+  --option-hover-text-color: hsl(0, 0%, 98%);
+  --option-selected-bg-color: hsla(224, 47%, 75%, 0.75);
 }

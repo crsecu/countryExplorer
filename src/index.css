@@ -178,3 +178,49 @@ dt::after {
     flex: initial;
   }
 }
+
+/* React Select style overrides */
+main .filter__control {
+  background-color: var(--ui-elements-color);
+  -webkit-transition: none;
+  transition: none;
+}
+
+main .filter__placeholder {
+  color: var(--ui-text-color);
+}
+
+main .filter__dropdown-indicator {
+  color: var(--ui-text-color);
+  -webkit-transition: none;
+  transition: none;
+}
+
+main .filter__input {
+  color: var(--ui-text-color) !important;
+}
+
+main .filter__menu {
+  background-color: var(--ui-elements-color);
+}
+main .filter__option,
+main .filter__single-value {
+  color: var(--ui-text-color);
+}
+
+main .filter__option:hover {
+  /* "&:hover": {
+    backgroundColor: state.isSelected ? "#85c1ff" : "#f0f4ff",
+  }, */
+  background-color: var(--option-hover-bg-color);
+  color: var(--option-hover-text-color);
+}
+
+main .filter__option--is-selected {
+  background-color: var(--option-selected-bg-color);
+  font-weight: 700;
+}
+
+main .filter__single-value:hover {
+  background-color: pink;
+}

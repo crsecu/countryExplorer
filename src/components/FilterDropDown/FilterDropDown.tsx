@@ -47,21 +47,16 @@ function FilterDropDown(): React.JSX.Element {
           padding: "8px 16px",
           cursor: "pointer",
         }),
-        option: (baseStyle, state) => ({
+        option: (baseStyle) => ({
           ...baseStyle,
           fontSize: "16px",
           color: "black",
-          backgroundColor: state.isSelected ? "#b3d4ff" : "inherit",
-          "&:hover": {
-            backgroundColor: state.isSelected ? "#85c1ff" : "#f0f4ff",
-          },
           paddingLeft: "30px",
           fontWeight: 600,
           cursor: "pointer",
         }),
         placeholder: (baseStyles) => ({
           ...baseStyles,
-          color: "black",
           fontWeight: 600,
           fontSize: "16px",
         }),
@@ -71,7 +66,6 @@ function FilterDropDown(): React.JSX.Element {
         dropdownIndicator: (baseStyles, state) => ({
           ...baseStyles,
           display: state.selectProps.value ? "none" : "block",
-          color: "black",
           marginLeft: "16px",
           fontSize: "10px",
           svg: {
@@ -91,7 +85,6 @@ function FilterDropDown(): React.JSX.Element {
           ...baseStyles,
           fontSize: "16px",
           fontWeight: 600,
-          color: "black",
         }),
       }}
     />
