@@ -22,7 +22,10 @@
 }
 
 .errorMessage {
+  position: relative;
   font-size: 1.375rem;
+  z-index: 999;
+  letter-spacing: 0.75px;
 }
 
 .suggestionMessage {
@@ -179,9 +182,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(rgba(248, 243, 243, 0.5), rgba(57, 58, 58, 0.3));
-  background: -webkit-radial-gradient(
-    rgba(248, 243, 243, 0.5),
-    rgba(57, 58, 58, 0.3)
+  background: rgb(242, 240, 232);
+  background: radial-gradient(
+    circle,
+    rgba(242, 240, 232, 0.4964110644257703) 0%,
+    rgba(39, 41, 42, 0.8689600840336135) 100%
   );
 }

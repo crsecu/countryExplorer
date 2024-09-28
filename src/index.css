@@ -64,6 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--ui-text-color);
+  background-color: var(--background);
 }
 
 a {
@@ -75,8 +76,8 @@ a:visited {
   color: var(--ui-text-color);
 }
 
-a:focus,
-button:focus {
+a:focus-visible,
+button:focus-visible {
   outline-offset: 6px;
 }
 
@@ -113,7 +114,7 @@ input::placeholder {
   color: var(--input);
 }
 
-input:focus {
+input:focus-visible {
   outline: 3px solid var(--ui-text-color);
 }
 
@@ -209,9 +210,6 @@ main .filter__single-value {
 }
 
 main .filter__option:hover {
-  /* "&:hover": {
-    backgroundColor: state.isSelected ? "#85c1ff" : "#f0f4ff",
-  }, */
   background-color: var(--option-hover-bg-color);
   color: var(--option-hover-text-color);
 }
@@ -219,8 +217,4 @@ main .filter__option:hover {
 main .filter__option--is-selected {
   background-color: var(--option-selected-bg-color);
   font-weight: 700;
-}
-
-main .filter__single-value:hover {
-  background-color: pink;
 }

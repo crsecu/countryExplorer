@@ -1,5 +1,6 @@
 .nav a:focus {
   outline-offset: 10px;
+  border-radius: 1px;
 }
 
 .nav a:hover {

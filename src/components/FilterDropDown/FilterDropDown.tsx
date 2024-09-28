@@ -38,11 +38,11 @@ function FilterDropDown(): React.JSX.Element {
           ...baseStyles,
           borderRadius: "6px",
           border: "none",
-          outline: state.isFocused ? "3px solid black " : "none",
-          "&:hover": {
-            boxShadow:
-              "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px",
-          },
+          outline: state.isFocused ? "3px solid" : "none",
+          // "&:hover": {
+          //   boxShadow:
+          //     "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px",
+          // },
           boxShadow: "rgba(99, 99, 99, 0.1) 0px 2px 8px 0px",
           padding: "8px 16px",
           cursor: "pointer",
@@ -54,6 +54,7 @@ function FilterDropDown(): React.JSX.Element {
           paddingLeft: "30px",
           fontWeight: 600,
           cursor: "pointer",
+          backgroundColor: "unset",
         }),
         placeholder: (baseStyles) => ({
           ...baseStyles,

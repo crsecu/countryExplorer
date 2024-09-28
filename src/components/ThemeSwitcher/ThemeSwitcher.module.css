@@ -22,8 +22,9 @@
 }
 
 .themeSwitcher:focus-visible {
-  outline-offset: 6px;
+  outline-offset: 8px;
   outline: 3px solid var(--ui-text-color);
+  border-radius: 1px;
 }
 
 .themeSwitcher span {

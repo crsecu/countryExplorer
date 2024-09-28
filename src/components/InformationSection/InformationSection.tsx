@@ -46,7 +46,7 @@ function InformationSection(): React.JSX.Element {
           console.log("API RESPONSE", res);
           if (!res.ok)
             throw new Error(
-              "We encountered an issue while trying to load the country details. You can return to the home page to explore other countries."
+              "We encountered an issue while loading the country details. You can return to the home page to explore other countries."
             );
           const data = await res.json();
           setCountryDetailsData(data);

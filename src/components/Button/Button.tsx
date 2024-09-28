@@ -39,10 +39,10 @@ function Button({
   return (
     <button
       className={`${styles.button} ${
-        positionAbsolute && styles.positionAbsolute
+        positionAbsolute ? styles.positionAbsolute : ""
       }
-        ${clearError && styles.clearError}
-      }`}
+        ${clearError ? styles.clearError : ""}
+      `}
       onClick={handleNavigation}
     >
       {backArrow && <BackArrow className={styles.backArrowIcon} />}
