@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 3rem;
+  column-gap: 2.5rem;
+  row-gap: 3rem;
   justify-content: space-around;
   padding: var(--spacing-xl) 0;
 }
@@ -10,7 +11,7 @@
 /* MEDIA QUERIES*/
 @media screen and (min-width: 576px) {
   .countryCardList {
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 }
 

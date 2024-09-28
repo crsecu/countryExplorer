@@ -17,7 +17,7 @@
 /* MEDIA QUERIES*/
 @media screen and (min-width: 576px) {
   .main {
-    padding: 1.75rem var(--spacing-lg);
+    padding: 1.75rem var(--spacing-xl);
   }
 
   .searchAndFilter_form {
@@ -33,7 +33,13 @@
 
 @media screen and (min-width: 768px) {
   .main {
-    padding: 1.75rem var(--spacing-xl);
+    padding: 1.75rem 3.5rem;
+  }
+}
+
+@media screen and (min-width: 870px) {
+  .main {
+    padding: 1.75rem 4rem;
   }
 }
 
@@ -51,6 +57,6 @@
 
 @media screen and (min-width: 2300px) {
   .main {
-    padding: 1.75rem 6rem;
+    padding: 1.75rem 5.5rem;
   }
 }

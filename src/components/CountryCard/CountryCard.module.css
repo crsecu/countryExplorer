@@ -48,11 +48,7 @@
 @media screen and (min-width: 576px) {
   .countryCardItem {
     flex: 1 1 45%;
-    max-width: 45%;
-  }
-
-  .countryCardContent {
-    padding-bottom: var(--spacing-sm);
+    max-width: 50%;
   }
 
   .countryName {

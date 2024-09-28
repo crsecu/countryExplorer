@@ -24,7 +24,7 @@
 }
 
 /* MEDIA QUERIES*/
-@media screen and (min-width: 575px) {
+@media screen and (min-width: 576px) {
   .searchContainer {
     width: 45%;
     padding-bottom: 0;
