@@ -148,7 +148,7 @@ dt::after {
 .leaflet-control-zoom a {
   color: var(--very-dark-blue-bg);
   color: var(--white);
-  background-color: hsl(207deg, 26%, 17%, 0.5);
+  background-color: var(--zoom-controls-bg);
 }
 
 .leaflet-touch .leaflet-bar {
@@ -161,7 +161,7 @@ dt::after {
 
 .leaflet-bar a:hover,
 .leaflet-bar a:focus {
-  background-color: var(--very-dark-blue-bg);
+  background-color: var(--zoom-controls-hover);
 }
 
 /* Leaflet map style overrides */

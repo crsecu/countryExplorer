@@ -34,6 +34,10 @@
   --option-hover-bg-color: hsl(224, 100%, 97%);
   --option-hover-text-color: hsl(200, 15%, 8%);
   --option-selected-bg-color: hsla(224, 30%, 62%, 0.35);
+
+  /* Map controls Theme colors */
+  --zoom-controls-bg: hsla(207, 26%, 75%, 0.671);
+  --zoom-controls-hover: hsla(204, 36%, 95%, 0.915);
 }
 
 /* DARK MODE */
@@ -69,8 +73,12 @@
     hsl(200, 15%, 8%)
   );
 
-  /* React Select Theme based colors */
+  /* React Select Theme colors */
   --option-hover-bg-color: hsla(223, 44%, 78%, 0.25);
   --option-hover-text-color: hsl(0, 0%, 98%);
   --option-selected-bg-color: hsla(224, 47%, 75%, 0.75);
+
+  /* Map controls Theme colors */
+  --zoom-controls-bg: hsl(207deg, 26%, 17%, 0.5);
+  --zoom-controls-hover: hsla(209, 26%, 17%, 0.82);
 }
