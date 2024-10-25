@@ -3,7 +3,7 @@ import { ButtonProps } from "../Button/Button";
 import { Dispatch, SetStateAction } from "react";
 
 interface StatusIndicator {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   img?: string;
   suggestion?: string;
   className?: string;
