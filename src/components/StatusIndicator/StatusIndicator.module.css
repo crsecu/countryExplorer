@@ -15,6 +15,7 @@
 .statusMessage button {
   margin: 16px auto;
 }
+
 .statusIcon {
   opacity: 0.85;
   width: 80px;
@@ -30,6 +31,17 @@
 
 .suggestionMessage {
   font-size: 1rem;
+}
+
+.fullScreen {
+  position: absolute;
+  height: 100vh;
+  background-color: gray;
+  z-index: 9999;
+}
+
+.fullScreen .statusMessage {
+  width: 100vw;
 }
 
 /* LOADER*/

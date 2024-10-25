@@ -8,10 +8,6 @@ import NavBar from "./components/NavBar/NavBar";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import StatusIndicator from "./components/StatusIndicator/StatusIndicator";
 
-// import HomePage from "./pages/HomePage";
-// import DetailPage from "./pages/DetailPage";
-// import PageNotFound from "./pages/PageNotFound";
-
 const HomePage = lazy(() => import("./pages/HomePage"));
 const DetailPage = lazy(() => import("./pages/DetailPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
@@ -36,10 +32,11 @@ function App(): React.JSX.Element {
             <NavBar />
             <ThemeSwitcher setTheme={setTheme} theme={theme} />
           </Header>
-          <Suspense fallback={<StatusIndicator spinner={true} />}>
+          <Suspense
+            fallback={<StatusIndicator spinner={true} fullScreen={true} />}
+          >
             <Routes>
               <Route index element={<HomePage />} />
-              {/* <Route path="country/:cca3/:countryName" element={<DetailPage />} /> */}
               <Route
                 path="country/:countryName/:cca3"
                 element={<DetailPage />}

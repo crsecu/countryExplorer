@@ -9,6 +9,7 @@ interface StatusIndicator {
   className?: string;
   spinner?: boolean;
   overlay?: boolean;
+  fullScreen?: boolean;
   buttonComponent?: React.FC<ButtonProps>;
   /*TO DO: research how to enforce that buttonName prop is required only when buttonComponent is provided */
   buttonName?: string /* buttonName is required when buttonComponent is present*/;
@@ -24,12 +25,17 @@ function StatusIndicator({
   className,
   spinner = false,
   overlay = false,
+  fullScreen = false,
   buttonComponent: Button,
   stateSetter,
   callbackFn,
 }: StatusIndicator): React.JSX.Element {
   return (
-    <div className={`${styles.statusIndicator} ${className ? className : ""}`}>
+    <div
+      className={`${styles.statusIndicator} ${
+        fullScreen ? styles.fullScreen : ""
+      } ${className ? className : ""}`}
+    >
       {img && <img src={img} alt="" className={styles.statusIcon} />}
       <div className={styles.statusMessage}>
         {spinner && <div className={styles.loadingIndicator}></div>}
