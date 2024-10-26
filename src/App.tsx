@@ -1,4 +1,4 @@
-// import { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { CountriesProvider } from "./contexts/CountriesContexts";
@@ -7,15 +7,11 @@ import useLocalStorage from "use-local-storage";
 import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
-// import StatusIndicator from "./components/StatusIndicator/StatusIndicator";
+import StatusIndicator from "./components/StatusIndicator/StatusIndicator";
 
-// const HomePage = lazy(() => import("./pages/HomePage"));
-// const DetailPage = lazy(() => import("./pages/DetailPage"));
-// const PageNotFound = lazy(() => import("./pages/PageNotFound"));
-
-import HomePage from "./pages/HomePage";
-import DetailPage from "./pages/DetailPage";
-import PageNotFound from "./pages/PageNotFound";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const DetailPage = lazy(() => import("./pages/DetailPage"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
 function App(): React.JSX.Element {
   // Here we are checking if the user has set a preferance for dark color scheme in their operating system, and storing the result(boolean) in the "defaultDark" variable
@@ -31,20 +27,23 @@ function App(): React.JSX.Element {
   return (
     <div className="app" data-theme={theme}>
       <CountriesProvider>
-        <Router basename="/countryExplorer">
+        <Router>
           <Header>
             <NavBar />
             <ThemeSwitcher setTheme={setTheme} theme={theme} />
           </Header>
-          {/* <Suspense
+          <Suspense
             fallback={<StatusIndicator spinner={true} fullScreen={true} />}
-          > */}
-          <Routes>
-            <Route index element={<HomePage />} />
-            <Route path="country/:countryName/:cca3" element={<DetailPage />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-          {/* </Suspense> */}
+          >
+            <Routes>
+              <Route index element={<HomePage />} />
+              <Route
+                path="country/:countryName/:cca3"
+                element={<DetailPage />}
+              />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </Suspense>
         </Router>
       </CountriesProvider>
     </div>
