@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { CountriesProvider } from "./contexts/CountriesContexts";
 import useLocalStorage from "use-local-storage";
 
@@ -26,7 +27,7 @@ function App(): React.JSX.Element {
   return (
     <div className="app" data-theme={theme}>
       <CountriesProvider>
-        <BrowserRouter basename="/countryExplorer/">
+        <Router basename="/countryExplorer">
           <Header>
             <NavBar />
             <ThemeSwitcher setTheme={setTheme} theme={theme} />
@@ -43,7 +44,7 @@ function App(): React.JSX.Element {
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Suspense>
-        </BrowserRouter>
+        </Router>
       </CountriesProvider>
     </div>
   );
