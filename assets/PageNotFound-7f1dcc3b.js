@@ -1,1 +1,0 @@
-import{j as o,S as t}from"./index-12205d7b.js";import{B as n}from"./Button-d7e1805d.js";function r(){return o.jsx(o.Fragment,{children:o.jsx(t,{buttonComponent:n,buttonName:"Back to Home",suggestion:"Sorry, the page you are looking for doesn't exist. You can go back to the main page by clicking the button below.",children:"Page not found 😢"})})}export{r as default};
