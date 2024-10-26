@@ -1,9 +1,12 @@
 <script type="text/javascript">
   const basename = "/countryExplorer";
 
-  const currentPath =
-    window.location.pathname.replace(basename, "") + window.location.search;
+  const currentPath = window.location.pathname;
 
-  const newUrl = basename + currentPath;
-  window.location.replace(newUrl);
+  // Check if the path already includes the basename
+  if (!currentPath.startsWith(basename)) {
+    // If the path does not include the basename, redirect to the correct path
+    const newUrl = basename + currentPath + window.location.search;
+    window.location.replace(newUrl);
+  }
 </script>
