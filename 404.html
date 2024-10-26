@@ -1,12 +1,12 @@
 <script type="text/javascript">
-  const basename = "/countryExplorer/";
+  const basename = "/countryExplorer";
   const currentPath =
     window.location.pathname + window.location.search + window.location.hash;
 
-  if (!currentPath.startsWith(basename)) {
+  if (!currentPath.includes(basename)) {
     const newUrl =
       basename +
-      "#" +
+      "/#" +
       window.location.pathname +
       window.location.search +
       window.location.hash;
