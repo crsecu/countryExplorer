@@ -5,3 +5,8 @@
   background-color: var(--background);
   margin-top: 0.75rem;
 }
+
+.neighborsList a:hover {
+  background-color: var(--btn-hover);
+  box-shadow: var(--btn-hover-shadow);
+}

@@ -1,6 +1,7 @@
 .infoSection {
   padding: 1rem var(--spacing-md);
   background-color: var(--background);
+  flex: 1;
 }
 
 .neighborsListSection {

@@ -88,8 +88,7 @@ button {
   box-shadow: var(--box-shadow-btn);
 }
 
-button:hover,
-a:hover {
+button:hover {
   background-color: var(--btn-hover);
   box-shadow: var(--btn-hover-shadow);
 }
