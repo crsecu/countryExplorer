@@ -2,7 +2,16 @@
 hosted on GitHub Pages
 <script type="text/javascript">
   const basename = "/countryExplorer";
-  const currentPath = window.location.pathname;
-  const newUrl = basename + "#" + currentPath;
-  window.location.replace(newUrl);
+  const currentPath =
+    window.location.pathname + window.location.search + window.location.hash;
+
+  if (!currentPath.startsWith(basename)) {
+    const newUrl =
+      basename +
+      "#" +
+      window.location.pathname +
+      window.location.search +
+      window.location.hash;
+    window.location.replace(newUrl);
+  }
 </script>
