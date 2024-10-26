@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { CountriesProvider } from "./contexts/CountriesContexts";
 import useLocalStorage from "use-local-storage";
 
@@ -11,6 +12,11 @@ import StatusIndicator from "./components/StatusIndicator/StatusIndicator";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const DetailPage = lazy(() => import("./pages/DetailPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+
+// Set basename for production to match the GitHub Pages subdirectory
+// Use an empty string during dev to avoid routing issues
+const basename =
+  import.meta.env.MODE === "production" ? "/countryExplorer" : "";
 
 function App(): React.JSX.Element {
   // Here we are checking if the user has set a preferance for dark color scheme in their operating system, and storing the result(boolean) in the "defaultDark" variable
@@ -27,7 +33,7 @@ function App(): React.JSX.Element {
   return (
     <div className="app" data-theme={theme}>
       <CountriesProvider>
-        <BrowserRouter basename="/countryExplorer/">
+        <Router basename={basename}>
           <Header>
             <NavBar />
             <ThemeSwitcher setTheme={setTheme} theme={theme} />
@@ -44,7 +50,7 @@ function App(): React.JSX.Element {
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Suspense>
-        </BrowserRouter>
+        </Router>
       </CountriesProvider>
     </div>
   );
