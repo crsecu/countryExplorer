@@ -16,7 +16,7 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 // Set basename for production to match the GitHub Pages subdirectory
 // Use an empty string during dev to avoid routing issues
 const basename =
-  import.meta.env.MODE === "production" ? "/countryExplorer" : "";
+  import.meta.env.MODE === "production" ? "/countryExplorer/" : "";
 
 function App(): React.JSX.Element {
   // Here we are checking if the user has set a preferance for dark color scheme in their operating system, and storing the result(boolean) in the "defaultDark" variable
