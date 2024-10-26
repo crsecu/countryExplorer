@@ -1,0 +1,7 @@
+//The following snippet is necessary to avoid 404 error when refreshing an app
+hosted on GitHub Pages
+<script type="text/javascript">
+  if (window.location.pathname !== "/") {
+    window.location.href = "/" + window.location.hash;
+  }
+</script>
