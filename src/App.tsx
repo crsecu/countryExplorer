@@ -27,7 +27,7 @@ function App(): React.JSX.Element {
   return (
     <div className="app" data-theme={theme}>
       <CountriesProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/countryExplorer/">
           <Header>
             <NavBar />
             <ThemeSwitcher setTheme={setTheme} theme={theme} />
