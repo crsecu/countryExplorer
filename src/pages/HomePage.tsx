@@ -1,5 +1,5 @@
 import CountryCardList from "../components/CountryCardList/CountryCardList";
-import FilterDropDown from "../components/FilterDropDown/FilterDropDown";
+import FilterDropdown from "../components/FilterDropdown/FilterDropdown";
 import SearchBar from "../components/SearchBar/SearchBar";
 import styles from "./HomePage.module.css";
 
@@ -8,7 +8,7 @@ function HomePage(): React.JSX.Element {
     <main className={styles.main}>
       <form className={styles.searchAndFilter_form}>
         <SearchBar />
-        <FilterDropDown />
+        <FilterDropdown />
       </form>
       <CountryCardList />
     </main>
